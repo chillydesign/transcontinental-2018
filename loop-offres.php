@@ -1,20 +1,28 @@
 <?php
 $today = current_time('Ymd');
+$term = get_queried_object();
+$cat = $term->slug;
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
 $offres_arg = array(
-	'post_type' => 'offre',
-	"posts_per_page" => 30,
-	// 'meta_query'             => array(
-  //       array(
-  //           'key'       => 'offer_end',
-  //           'value'     => $today,
-  //           'compare'   => '>',
-  //           'type'      => 'CHAR',
-  //       ),
-  //  ),
-	'meta_key'	=> 'offer_end',
-	'orderby' => 'meta_value',
-	"order"  => "DESC"
-); ?>
+		'post_type' => 'offre',
+		// "posts_per_page" => 1,
+		// 'meta_query'             => array(
+	  //       array(
+	  //           'key'       => 'offer_end',
+	  //           'value'     => $today,
+	  //           'compare'   => '>',
+	  //           'type'      => 'CHAR',
+	  //       ),
+	  //  ),
+		'taxonomy' => 'offre_cat',
+		'term' => $cat,
+		'paged' => $paged,
+		'meta_key'	=> 'offer_end',
+		'orderby' => 'meta_value',
+		"order"  => "DESC"
+	);
+ ?>
 <?php $offres_loop = new WP_Query( $offres_arg ); ?>
 
 
@@ -85,4 +93,15 @@ $offres_arg = array(
 	</div>
 </div>
 <?php endif; ?>
+
+<div class="pagination">
+<?php  echo paginate_links(array(
+		'base' => str_replace(9999, '%#%', get_pagenum_link(9999)),
+		'format' => '?paged=%#%',
+		'current' => max(1, get_query_var('paged')),
+		'total' => $offres_loop->max_num_pages
+));?>
+</div>
+
+
 <?php wp_reset_query(); ?>

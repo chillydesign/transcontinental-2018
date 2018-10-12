@@ -1027,10 +1027,10 @@ input[type="radio"] {
 
 #social_bar ul li span.tittle {
 	position: absolute;
-  right: 63px;
+  right: 58px;
   background: #a8000e;
   padding: 10px;
-  top: 6px;
+  top: 10px;
   border-radius: 4px 0 0 4px;
   text-align: right;
   display: none;
@@ -1048,8 +1048,8 @@ input[type="radio"] {
 #social_bar ul li span.tittle:after {
     content: '';
     position: absolute;
-    right: -12px;
-    top: 0px;
+    right: -7px;
+    top: 6px;
     width: 0;
     height: 0;
     border-style: solid;
@@ -1104,4 +1104,21 @@ input[type="radio"] {
     display: inline-block;
 }
 
+}
+
+
+.category_menu {
+	background: #e10129;
+}
+
+.category_menu ul li {
+	display: inline-block; padding: 10px 20px 10px 20px;
+}
+.category_menu ul li a{
+	color: white;
+	font-weight: bold;
+}
+
+.category_menu li.current_cat {
+	background: #a8000e;
 }

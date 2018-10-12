@@ -7,8 +7,8 @@
 	</div>
 </div>
 
-
 <?php get_template_part('list-offres-cat'); ?>
+
 <div class="container" >
 	<div class="row">
 
@@ -23,7 +23,7 @@
 
 			<?php get_template_part('loop-offres'); ?>
 
-			<?php get_template_part('pagination'); ?>
+
 			</div>
 		</section>
 		<!-- /section -->

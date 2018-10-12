@@ -207,7 +207,7 @@ function my_remove_recent_comments_style()
 function html5wp_pagination()
 {
     global $wp_query;
-    $big = 999999999;
+    $big = 999999;
     echo paginate_links(array(
         'base' => str_replace($big, '%#%', get_pagenum_link($big)),
         'format' => '?paged=%#%',
