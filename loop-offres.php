@@ -94,6 +94,8 @@ $offres_arg = array(
 </div>
 <?php endif; ?>
 
+
+<?php if ( $offres_loop->max_num_pages  > 1) : ?>
 <div class="pagination">
 <?php  echo paginate_links(array(
 		'base' => str_replace(9999, '%#%', get_pagenum_link(9999)),
@@ -102,6 +104,6 @@ $offres_arg = array(
 		'total' => $offres_loop->max_num_pages
 ));?>
 </div>
-
+<?php endif; ?>
 
 <?php wp_reset_query(); ?>
