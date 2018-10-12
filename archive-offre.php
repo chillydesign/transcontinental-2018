@@ -1,0 +1,42 @@
+<?php get_header(); ?>
+
+<div class="page_image" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>')">
+	<div class="container">
+		<h1>Nos offres</h1>
+		<a class="top_button" href="<?php echo get_home_url(); ?>/contact" class="button"><h6>Contactez-nous pour organiser votre voyage</h6></a>
+	</div>
+</div>
+
+
+
+<div class="container" >
+	<div class="row">
+
+
+
+		<!-- section -->
+		<section id="main_col" class="col-sm-12">
+			<div id="offres_list">
+
+
+
+			<?php get_template_part('list-offres-cat'); ?>
+			<?php get_template_part('loop-offres'); ?>
+
+			<?php get_template_part('pagination'); ?>
+			</div>
+		</section>
+		<!-- /section -->
+
+
+
+
+		<?php //get_sidebar(); ?>
+		<?php // get_template_part('sidebar_right'); ?>
+
+
+	</div> <!-- END OF ROW -->
+</div> <!-- END OF CONTAINER -->
+
+
+<?php get_footer(); ?>
