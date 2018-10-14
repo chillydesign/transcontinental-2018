@@ -420,6 +420,7 @@ function create_post_type_slide()
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
+        'menu_icon' => 'dashicons-images-alt2',
         'supports' => array(
             'title',
             'excerpt',
@@ -491,6 +492,7 @@ function create_custom_post_types()
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
+        'menu_icon' => 'dashicons-media-interactive',
         'supports' => array(
             'title',
             'editor'//,
@@ -524,6 +526,7 @@ function create_custom_post_types()
         'exclude_from_search' => false,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
+        'menu_icon' => 'dashicons-palmtree',
         'supports' => array(
             'title',
             'thumbnail',
