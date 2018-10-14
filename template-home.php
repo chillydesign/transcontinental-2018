@@ -111,7 +111,7 @@
 						</div>
 
 					</div>
-					<a class="readmore" href="<?php echo get_home_url();?>/services-online"><h6>Réserver en ligne</h6></a>
+					<a class="readmore" href="<?php echo get_home_url();?>/reservations-2424-h"><h6>Réserver en ligne</h6></a>
 				</div>
 
 			</div>

@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="reservation_box">
-					<div class="offre_img" style="background-image:url(<?php echo get_template_directory_uri();?>/img/plane.jpg)">
+					<div class="offre_img" style="background-image:url(<?php echo get_template_directory_uri();?>/img/champagne.jpg)">
 
 						<h3 class="white_title">Listes</h3>
 					</div>
