@@ -1,7 +1,11 @@
 <?php /* Template Name: No Sidebars */ get_header(); ?>
 
-	<?php if ( has_post_thumbnail()) :  ?>
-	<div class="page_image" style="background-image:url('<?php echo the_post_thumbnail_url(); ?>'); overflow: hidden;">
+<div class="page_image" style="background-image:url('<?php if ( has_post_thumbnail()) :  ?><?php echo the_post_thumbnail_url(); ?><?php else: ?><?php echo get_home_url(); ?>/wp-content/uploads/2018/10/slide2-1.jpg'<?php endif; ?>)">
+	<div class="container">
+		<h1><?php the_title(); ?></h1>
+	</div>
+</div>
+
 
 	<!-- Start of snow -->
 			<?php if( is_front_page() AND false ){?>
@@ -13,15 +17,8 @@
 		<?php } ?>
 	<!-- End of snow -->
 
-		
-	</div>
-	<?php else: ?>
-		<div id="featured_slide"><?php  get_template_part('slides'); ?></div>
-	<?php endif; ?>
 
-<div class="page_title">
-	<h1 class="container"><?php the_title(); ?></h1>
-</div>
+	</div>
 
 
 	<article style="margin:0" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
