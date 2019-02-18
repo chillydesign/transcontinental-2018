@@ -62,6 +62,13 @@ if (function_exists('add_theme_support'))
 	Functions
 \*------------------------------------*/
 
+
+function wf_version(){
+  return '0.0.1';
+}
+
+
+
 // HTML5 Blank navigation
 function html5blank_nav()
 {
@@ -115,16 +122,16 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-    wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', array(), '1.0', 'all');
+    wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', array(), ,wf_version(), 'all');
     wp_enqueue_style('reset'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.6', 'all');
+    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), wf_version(), 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 
-     wp_register_style('unslider', get_template_directory_uri() . '/css/unslider.css', array(), '1.0', 'all');
+     wp_register_style('unslider', get_template_directory_uri() . '/css/unslider.css', array(), wf_version(), 'all');
      wp_enqueue_style('unslider'); // Enqueue it!
 
-     wp_register_style('featherlight', get_template_directory_uri() . '/css/featherlight.min.css', array(), '1.0', 'all');
+     wp_register_style('featherlight', get_template_directory_uri() . '/css/featherlight.min.css', array(), wf_version(), 'all');
      wp_enqueue_style('featherlight'); // Enqueue it!
 
 

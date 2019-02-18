@@ -1,17 +1,50 @@
 <?php /* Template Name: Homepage Template */ get_header(); ?>
 
-<div class="page_image homepage_image" style="background-image:url('<?php echo the_post_thumbnail_url(); ?>')">
-	<div class="container">
-		<h1><?php the_title(); ?></h1>
-		<a class="top_button" href="<?php echo get_home_url(); ?>/contact" class="button"><h6>Contactez-nous pour organiser votre voyage</h6></a>
-	</div>
-</div>
+<?php $home_url = get_home_url(); ?>
+<?php $tdu = get_template_directory_uri(); ?>
 
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+
+<?php
+$images_for_slider = array();
+$slider = get_field($slider);
+
+ if ($slider):
+     foreach ($slider as $image) {
+         array_push($images_for_slider, $image['sizes']['large']);
+     }
+
+else : # no slider use featured image
+     $image = thumbnail_of_post_url(get_the_ID(), 'large');
+     if ($image) {
+        array_push($images_for_slider, $image);
+     }
+
+endif; # no slider use featured image
+
+?>
+
+<div class="page_image homepage_image">
+	<div class="container">
+		<h1><?php the_title(); ?></h1>
+		<a class="top_button" href="<?php echo $home_url; ?>/contact" class="button"><h6>Contactez-nous pour organiser votre voyage</h6></a>
+	</div>
+
+    <?php if (sizeof($images) > 0): ?>
+        <div class="header_slider">
+            <?php foreach ($image as $image) : ?>
+                <div class="header_slider_image"  style="background-image:url('<?php echo $image; ?>')"></div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif ?>
+
+</div>
+
+
 	<div class="container">
 		<div class="welcome-section">
 			<?php the_content(); ?>
-			<a href="<?php echo get_home_url(); ?>/contact" class="button" style="margin-top:20px; display:block;"><h6>Contactez-nous pour organiser votre voyage</h6></a>
+			<a href="<?php echo $home_url; ?>/contact" class="button" style="margin-top:20px; display:block;"><h6>Contactez-nous pour organiser votre voyage</h6></a>
 		</div>
 	</div>
 
@@ -33,9 +66,9 @@
 						$offres_loop -> the_post(); ?>
 
 						<div class="offre">
-							<?php if(get_field('offer_end')):?>
-								<?php $offre_time= get_field('offer_end'); ?>
-								<?php $offre_number_time= strtotime(get_field('offer_end')); ?>
+                            <?php $offre_time = get_field('offer_end'); ?>
+							<?php if( $offre_time  ):?>
+								<?php $offre_number_time = strtotime( $offre_time ); ?>
 								<?php $time = time(); ?>
 								<?php $diff = $offre_number_time - $time; ?>
 								<?php if($diff < 0): ?>
@@ -53,8 +86,9 @@
 								<div class="allbutlink">
 									<h3 class="black_title"><?php echo get_field('black_title'); ?></h3>
 									<div class="excerpt">
-										<?php if(get_field('extract')): ?>
-											<p><?php echo get_field('extract'); ?></p>
+                                        <?php $extract = get_field('extract')
+										<?php if( $extract ): ?>
+											<p><?php echo $extract; ?></p>
 										<?php else: ?>
 											<?php
 											$content = str_replace('! ', '. ', get_field('content'));
@@ -63,9 +97,9 @@
 											$content = '<p>' . strip_tags($content) . '</p>';
 											$dot = ".";
 
-											$position = stripos ($content, $dot); //find first dot position
+											$position = stripos($content, $dot); //find first dot position
 
-											if($position) { //if there's a dot in our soruce text do
+											if($position) { //if there's a dot in our source text do
 												$offset = $position + 1; //prepare offset
 												$position2 = stripos ($content, $dot, $offset); //find second dot using offset
 												$first_two = substr($content, 0, $position2); //put two first sentences under $first_two
@@ -90,7 +124,7 @@
 			</div>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<a href="<?php echo get_home_url(); ?>/offre" class="button" style="display:block; text-align:center;"><h6>Découvrir toutes nos offres</h6></a>
+		<a href="<?php echo $home_url; ?>/offre" class="button" style="display:block; text-align:center;"><h6>Découvrir toutes nos offres</h6></a>
 
 	</div>
 </div>
@@ -99,7 +133,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
-				<div class="offre_img" style="background-image:url(<?php echo get_template_directory_uri();?>/img/plane.jpg)">
+				<div class="offre_img" style="background-image:url(<?php echo $tdu;?>/img/plane.jpg)">
 
 					<h3 class="white_title">Services online</h3>
 				</div>
@@ -111,13 +145,13 @@
 						</div>
 
 					</div>
-					<a class="readmore" href="<?php echo get_home_url();?>/reservations-2424-h"><h6>Réserver en ligne</h6></a>
+					<a class="readmore" href="<?php echo $home_url;?>/reservations-2424-h"><h6>Réserver en ligne</h6></a>
 				</div>
 
 			</div>
 
 			<div class="col-sm-6">
-				<div class="offre_img" style="background-image:url(<?php echo get_template_directory_uri();?>/img/gift.jpg)">
+				<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/gift.jpg)">
 
 					<h3 class="white_title">Pour offrir</h3>
 				</div>
@@ -129,7 +163,7 @@
 						</div>
 
 					</div>
-					<a class="readmore" href="<?php echo get_home_url();?>/pour-offrir"><h6>Offrir un voyage</h6></a>
+					<a class="readmore" href="<?php echo $home_url; ?>/pour-offrir"><h6>Offrir un voyage</h6></a>
 				</div>
 
 			</div>
@@ -166,7 +200,7 @@
 <div class="program">
 	<div class="container">
 		<h2>Programmez votre prochain voyage</h2>
-		<a href="<?php echo get_home_url(); ?>/contact" class="button"><h6>Contactez-nous</h6></a>
+		<a href="<?php echo  $home_url; ?>/contact" class="button"><h6>Contactez-nous</h6></a>
 	</div>
 </div>
 

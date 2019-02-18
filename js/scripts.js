@@ -1,5 +1,13 @@
 $(function() {
 
+
+    	$(".header_slider").slick({
+            infinite: true,
+    		autoplay: true,
+    		slidesToShow: 1,
+            dots: false
+        });
+
 	//Offers slider
 	$(".home #offers_slider").slick({
 
