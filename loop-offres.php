@@ -31,10 +31,13 @@ $offres_arg = array(
 	<div id="offers_slider">
 		<?php while ( $offres_loop -> have_posts() ) :
 			$offres_loop -> the_post(); ?>
-			<?php $cats= get_the_terms(get_the_ID(), 'category'); ?>
+			<?php $cats= get_the_terms(get_the_ID(), 'offre_cat'); ?>
+			<?php if($cats) : ?>
 			<?php $cat_slugs = array_map(function($cat){
 				return '"' . $cat->slug . '"';
 			}, $cats ); ?>
+		<?php else : $cats=""; ?>
+		<?php endif; ?>
 
 			<div class="offre" data-groups='[<?php echo implode(', ' , $cat_slugs); ?>]'>
 				<?php if(get_field('offer_end')):?>

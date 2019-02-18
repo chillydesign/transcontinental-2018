@@ -22,6 +22,7 @@ GREY #dfe0e2
 */
 
 
+
 body {
 	font:normal 62.5% 'Roboto',  arial,  sans-serif;
 	/*background: url('img/bg.jpg') no-repeat #eff0f2;*/
@@ -103,7 +104,7 @@ a {
 section a:link, section a:visited {
 	color:#c0081f;
 	border-bottom: 1px solid #c0081f;
-	word-break: break-all;
+	/* word-break: break-all; */
 
 
 }
@@ -376,6 +377,17 @@ header#header {
 	.home .offers_slider_container, .reservation_box {
 		margin-top: -80px;
 	}
+
+	@media (max-width: 767px){
+		.reservation_box {
+			margin-top: 30px;
+		}
+
+		.reservation .row{
+			margin-top: -80px;
+		}
+	}
+
 
 	button.slick-arrow {
 		position: absolute;

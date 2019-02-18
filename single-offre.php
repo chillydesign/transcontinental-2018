@@ -35,15 +35,15 @@
 									<?php $images = get_field('photo_gallery'); ?>
 									<div class="gallery_slider_container">
 										<div id="gallery_slider">
-									<?php foreach( $images as $image ): ?>
-										<div>
-			                <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
-			                <p><?php echo $image['caption']; ?></p>
+											<?php foreach( $images as $image ): ?>
+												<div>
+													<img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
+													<p><?php echo $image['caption']; ?></p>
+												</div>
+											<?php endforeach; ?>
 										</div>
-			        <?php endforeach; ?>
 									</div>
-								</div>
-							<?php endif; ?>
+								<?php endif; ?>
 
 
 
@@ -56,11 +56,16 @@
 								<div class="more_info_box">
 									<h3>Plus d'informations</h3>
 									<?php $offre_number_time= strtotime(get_field('offer_end')); ?>
-									<p>
-										<?php the_field('more_info'); ?><br>
+
+										<p>
+										<?php if(get_field('more_info')): ?>
+											<?php the_field('more_info'); ?><br>
+										<?php endif; ?>
 										Offre valide jusqu'au <?php echo date('d.m.Y', $offre_number_time); ?>
 									</p>
+									<?php if(get_field('download')): ?>
 									<a href="<?php the_field('download'); ?>" target="_blank" class="doc_link"><h6>Télécharger la documentation</h6></a>
+										<?php endif; ?>
 									<h3 id="reserver">Réserver</h3>
 									<form action="#">
 										<label for="nom">Votre nom</label>
