@@ -5,7 +5,12 @@ $(function() {
             infinite: true,
     		autoplay: true,
     		slidesToShow: 1,
-            dots: false
+            dots: false,
+            arrows: false,
+            fade: true,
+            speed: 1000,
+            autoplaySpeed: 3000
+                
         });
 
 	//Offers slider

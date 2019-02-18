@@ -122,7 +122,7 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-    wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', array(), ,wf_version(), 'all');
+    wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', array(), wf_version(), 'all');
     wp_enqueue_style('reset'); // Enqueue it!
 
     wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), wf_version(), 'all');

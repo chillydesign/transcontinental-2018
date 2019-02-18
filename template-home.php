@@ -7,7 +7,7 @@
 
 <?php
 $images_for_slider = array();
-$slider = get_field($slider);
+$slider = get_field('slider');
 
  if ($slider):
      foreach ($slider as $image) {
@@ -27,12 +27,12 @@ endif; # no slider use featured image
 <div class="page_image homepage_image">
 	<div class="container">
 		<h1><?php the_title(); ?></h1>
-		<a class="top_button" href="<?php echo $home_url; ?>/contact" class="button"><h6>Contactez-nous pour organiser votre voyage</h6></a>
+		<a class="top_button button" href="<?php echo $home_url; ?>/contact"><h6>Contactez-nous pour organiser votre voyage</h6></a>
 	</div>
 
-    <?php if (sizeof($images) > 0): ?>
+    <?php if (sizeof($images_for_slider) > 0): ?>
         <div class="header_slider">
-            <?php foreach ($image as $image) : ?>
+            <?php foreach ($images_for_slider as $image) : ?>
                 <div class="header_slider_image"  style="background-image:url('<?php echo $image; ?>')"></div>
             <?php endforeach; ?>
         </div>
@@ -86,7 +86,7 @@ endif; # no slider use featured image
 								<div class="allbutlink">
 									<h3 class="black_title"><?php echo get_field('black_title'); ?></h3>
 									<div class="excerpt">
-                                        <?php $extract = get_field('extract')
+                                        <?php $extract = get_field('extract'); ?>
 										<?php if( $extract ): ?>
 											<p><?php echo $extract; ?></p>
 										<?php else: ?>

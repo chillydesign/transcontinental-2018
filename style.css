@@ -352,6 +352,12 @@ header#header {
         position: relative;
     }
 
+    .homepage_image .slick-track,
+    .homepage_image .slick-list {
+        height: 100%;
+    }
+
+
     .header_slider  {
             position: absolute;
             top:0;
