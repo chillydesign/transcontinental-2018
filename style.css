@@ -1197,7 +1197,7 @@ span.not_found {
 
 
 
-.instagram_container #instafeed a {
+ #instafeed a {
     height: 200px;
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
@@ -1209,7 +1209,7 @@ span.not_found {
 
 
 @media (min-width: 768px){
-    .instagram_container #instafeed a {
+ #instafeed a {
         max-width: 16.66667%;
     }
 }
