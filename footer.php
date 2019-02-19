@@ -81,7 +81,7 @@
 <script type="text/javascript" src="<?php echo $tdu; ?>/js/featherlight.gallery.min.js"></script>
 <script type="text/javascript" src="<?php echo $tdu; ?>/js/jquery.justifiedGallery.min.js"></script>
 <script type="text/javascript" src="<?php echo $tdu; ?>/js/slick.min.js"></script>
-<script type="text/javascript" src="<?php echo $tdu; ?>/js/scripts.js?v=0.2"></script>
+<script type="text/javascript" src="<?php echo $tdu; ?>/js/scripts.js?v=<?php echo wf_version(); ?>"></script>
 <!-- analytics -->
 <script>
 	// (function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
