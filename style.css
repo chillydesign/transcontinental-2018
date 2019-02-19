@@ -1205,6 +1205,12 @@ span.not_found {
     display: inline-block;
     max-width: 33.33333%;
     border: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: #ececec;
+    display: inline-block;
+    width: 100%;
 }
 
 
