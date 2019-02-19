@@ -1,7 +1,8 @@
 <?php $tdu = get_template_directory_uri(); ?>
 
 
-<div id="instafeed"></div>
+<?php get_template_part('instafeed'); ?>
+
 
 <!-- footer -->
 <footer class="footer" role="contentinfo">
