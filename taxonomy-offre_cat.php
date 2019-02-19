@@ -3,7 +3,7 @@
 <div class="page_image" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>')">
 	<div class="container">
 		<h1>Nos offres</h1>
-		<a class="top_button" href="<?php echo get_home_url(); ?>/contact" class="button"><h6>Contactez-nous pour organiser votre voyage</h6></a>
+		<a class="top_button" href="<?php echo get_home_url(); ?>/demande-de-renseignements" class="button"><h6>Contactez-nous pour organiser votre voyage</h6></a>
 	</div>
 </div>
 

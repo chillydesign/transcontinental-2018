@@ -59,7 +59,7 @@
 			    <ul>
 			      <li class="booking_bar"><span class="tittle">Réservation en ligne</span><a href="<?php echo get_home_url(); ?>/reservations-2424-h"><?php include('img/booking.svg'); ?></a></li>
 			      <li class="gift_bar"><span class="tittle">Pour offrir</span><a href="<?php echo get_home_url(); ?>/pour-offrir"><?php include('img/gift.svg'); ?></a></li>
-			      <li class="contact_bar"><span class="tittle">Contactez-nous</span><a href="<?php echo get_home_url(); ?>/contact"><?php include('img/contact.svg'); ?></a></li>
+			      <li class="contact_bar"><span class="tittle">Contactez-nous</span><a href="<?php echo get_home_url(); ?>/demande-de-renseignements"><?php include('img/contact.svg'); ?></a></li>
 			    </ul>
 			  </div>
 

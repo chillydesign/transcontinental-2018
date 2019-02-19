@@ -10,7 +10,7 @@
 
 <div class="container">
 	<div class="welcome-section">
-		<h2>Offrez-leur le voyage de leurs rêves</h2>
+		<h2>Offrez un voyage de rêve</h2>
 	</div>
 </div>
 
@@ -61,7 +61,7 @@
 <div class="program">
 	<div class="container">
 		<h2>Besoin d'aide? Nous sommes là pour vous aider.</h2>
-		<a href="<?php echo get_home_url(); ?>/contact" class="button"><h6>Contactez-nous</h6></a>
+		<a href="<?php echo get_home_url(); ?>/demande-de-renseignements" class="button"><h6>Contactez-nous</h6></a>
 	</div>
 </div>
 

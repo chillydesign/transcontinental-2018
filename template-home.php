@@ -27,7 +27,7 @@ endif; # no slider use featured image
 <div class="page_image homepage_image">
 	<div class="container">
 		<h1><?php the_title(); ?></h1>
-		<a class="top_button button" href="<?php echo $home_url; ?>/contact"><h6>Contactez-nous pour organiser votre voyage</h6></a>
+		<a class="top_button button" href="<?php echo $home_url; ?>/demande-de-renseignements"><h6>Contactez-nous pour organiser votre voyage</h6></a>
 	</div>
 
     <?php if (sizeof($images_for_slider) > 0): ?>
@@ -44,7 +44,7 @@ endif; # no slider use featured image
 	<div class="container">
 		<div class="welcome-section">
 			<?php the_content(); ?>
-			<a href="<?php echo $home_url; ?>/contact" class="button" style="margin-top:20px; display:block;"><h6>Contactez-nous pour organiser votre voyage</h6></a>
+			<a href="<?php echo $home_url; ?>/demande-de-renseignements" class="button" style="margin-top:20px; display:block;"><h6>Contactez-nous pour organiser votre voyage</h6></a>
 		</div>
 	</div>
 
@@ -160,7 +160,7 @@ endif; # no slider use featured image
 					<div class="allbutlink">
 						<h3 class="black_title">Bons cadeaux et listes de mariage en ligne</h3>
 						<div class="excerpt">
-							<p>Offrez-leur le voyage de leurs rêves. Choisissez le montant, ils choisiront leur destination!</p>
+							<p>Offrez un voyage de rêve. Choisissez le montant, ils choisiront leur destination!</p>
 						</div>
 
 					</div>
@@ -203,7 +203,7 @@ endif; # no slider use featured image
 <div class="program">
 	<div class="container">
 		<h2>Programmez votre prochain voyage</h2>
-		<a href="<?php echo  $home_url; ?>/contact" class="button"><h6>Contactez-nous</h6></a>
+		<a href="<?php echo  $home_url; ?>/demande-de-renseignements" class="button"><h6>Contactez-nous</h6></a>
 	</div>
 </div>
 

@@ -79,7 +79,7 @@
 <div class="program">
 	<div class="container">
 		<h2>Besoin d'aide? Nous sommes là pour vous aider.</h2>
-		<a href="<?php echo get_home_url(); ?>/contact" class="button"><h6>Contactez-nous</h6></a>
+		<a href="<?php echo get_home_url(); ?>/demande-de-renseignements" class="button"><h6>Contactez-nous</h6></a>
 	</div>
 </div>
 
