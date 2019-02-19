@@ -1,0 +1,23 @@
+{
+  "name": "transcontinental-2018",
+  "version": "1.0.0",
+  "description": "wordpress theme for transcontinental by webfactor",
+  "main": "index.php",
+  "dependencies": {
+    "instafeed.js": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "say hello"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chillydesign/transcontinental-2018.git"
+  },
+  "author": "webfactor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chillydesign/transcontinental-2018/issues"
+  },
+  "homepage": "https://github.com/chillydesign/transcontinental-2018#readme"
+}

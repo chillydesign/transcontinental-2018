@@ -1,6 +1,8 @@
 <?php $tdu = get_template_directory_uri(); ?>
 
 
+<div id="instafeed"></div>
+
 <!-- footer -->
 <footer class="footer" role="contentinfo">
 
@@ -71,6 +73,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
 <?php wp_footer(); ?>
 
+<script type="text/javascript" src="<?php echo $tdu; ?>/js/instafeed.min.js"></script>
 <script type="text/javascript" src="<?php echo $tdu; ?>/js/unslider-min.js"></script>
 <script type="text/javascript" src="<?php echo $tdu; ?>/js/jquery.matchHeight-min.js"></script>
 <script type="text/javascript" src="<?php echo $tdu; ?>/js/jquery.shuffle.js"></script>
