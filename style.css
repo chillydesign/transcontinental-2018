@@ -358,7 +358,7 @@ header#header {
     }
 
 
-    .header_slider  {
+    body .header_slider  {
             position: absolute;
             top:0;
             left: 0;
