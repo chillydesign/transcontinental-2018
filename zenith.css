@@ -4,6 +4,15 @@
 
 
 
+h6 a, a h6 {
+	background: #04A4CC;
+
+}
+
+.category_menu {
+	background: #04A4CC;
+}
+
 #nav #show_nav_button {
     background: #04A4CC;
 }

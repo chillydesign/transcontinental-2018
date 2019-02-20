@@ -80,7 +80,7 @@ if (function_exists('add_theme_support'))
 
 
 function wf_version(){
-  return '0.0.3';
+  return '0.0.4';
 }
 
 
