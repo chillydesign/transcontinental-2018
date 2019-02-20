@@ -15,6 +15,22 @@
 	Theme Support
 \*------------------------------------*/
 
+
+// USE TO SWITCH BETWEEN transcontinental and zenith themes
+if (defined('WEBSITE_THEME')) {
+    $website_theme = WEBSITE_THEME;
+} else {
+    $website_theme = 'Transcontinental';
+}
+
+function get_website_theme() {
+    global $website_theme;
+    return $website_theme;
+}
+// USE TO SWITCH BETWEEN transcontinental and zenith themes
+
+
+
 if (!isset($content_width))
 {
     $content_width = 900;
@@ -120,20 +136,33 @@ function html5blank_conditional_scripts()
 }
 
 // Load HTML5 Blank styles
-function html5blank_styles()
-{
-    wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', array(), wf_version(), 'all');
+function html5blank_styles() {
+
+    $tdu = get_template_directory_uri();
+    wp_register_style('reset', $tdu . '/css/reset.css', array(), wf_version(), 'all');
     wp_enqueue_style('reset'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), wf_version(), 'all');
+    wp_register_style('html5blank', $tdu . '/style.css', array(), wf_version(), 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 
-     wp_register_style('unslider', get_template_directory_uri() . '/css/unslider.css', array(), wf_version(), 'all');
+     wp_register_style('unslider', $tdu . '/css/unslider.css', array(), wf_version(), 'all');
      wp_enqueue_style('unslider'); // Enqueue it!
 
-     wp_register_style('featherlight', get_template_directory_uri() . '/css/featherlight.min.css', array(), wf_version(), 'all');
+     wp_register_style('featherlight', $tdu . '/css/featherlight.min.css', array(), wf_version(), 'all');
      wp_enqueue_style('featherlight'); // Enqueue it!
 
+     wp_register_style('justifiedGallery', $tdu . '/css/justifiedGallery.min.css', array(), wf_version(), 'all');
+     wp_enqueue_style('justifiedGallery'); // Enqueue it!
+
+     wp_register_style('slick', $tdu . '/css/slick.css', array(), wf_version(), 'all');
+     wp_enqueue_style('slick'); // Enqueue it!
+
+
+
+     if (get_website_theme() == 'zenith') {
+         wp_register_style('zenith', $tdu . '/zenith.css', array(), wf_version(), 'all');
+         wp_enqueue_style('zenith'); // Enqueue it!
+     }
 
 }
 
@@ -678,11 +707,53 @@ function thumbnail_of_post_url( $post_id,  $size='large'  ) {
 
 }
 
+
+function chilly_site_favicons() {
+    $tdu = get_template_directory_uri();
+    $icons = array(
+        '<link rel="apple-touch-icon" sizes="57x57" href="' . $tdu . '/img/favicon/apple-icon-57x57.png">',
+        '<link rel="apple-touch-icon" sizes="60x60" href="' . $tdu . '/img/favicon/apple-icon-60x60.png">',
+        '<link rel="apple-touch-icon" sizes="72x72" href="' . $tdu . '/img/favicon/apple-icon-72x72.png">',
+        '<link rel="apple-touch-icon" sizes="76x76" href="' . $tdu . '/img/favicon/apple-icon-76x76.png">',
+        '<link rel="apple-touch-icon" sizes="114x114" href="' . $tdu . '/img/favicon/apple-icon-114x114.png">',
+        '<link rel="apple-touch-icon" sizes="120x120" href="' . $tdu . '/img/favicon/apple-icon-120x120.png">',
+        '<link rel="apple-touch-icon" sizes="144x144" href="' . $tdu . '/img/favicon/apple-icon-144x144.png">',
+        '<link rel="apple-touch-icon" sizes="152x152" href="' . $tdu . '/img/favicon/apple-icon-152x152.png">',
+        '<link rel="apple-touch-icon" sizes="180x180" href="' . $tdu . '/img/favicon/apple-icon-180x180.png">',
+        '<link rel="icon" type="image/png" sizes="192x192" href="' . $tdu . '/img/favicon/android-icon-192x192.png">',
+        '<link rel="icon" type="image/png" sizes="32x32" href="' . $tdu . '/img/favicon/favicon-32x32.png">',
+        '<link rel="icon" type="image/png" sizes="96x96" href="' . $tdu . '/img/favicon/favicon-96x96.png">',
+        '<link rel="icon" type="image/png" sizes="16x16" href="' . $tdu . '/img/favicon/favicon-16x16.png">'
+    );
+
+    echo implode("\n", $icons);
+
+}
+
+function chilly_site_logo() {
+    $tdu = get_template_directory_uri();
+    if ( get_website_theme() == 'zenith' ) {
+        echo '<img src="' .  $tdu. '/img/zenith.svg" alt="Zenith Voyages" />';
+    } else {
+        echo '<img src="' .  $tdu. '/img/logo.png" alt="Transcontinental" />';
+    }
+
+}
+
+
 function social_meta_properties(){
 
     $smp =  new stdClass();
-    global $post;
 
+    if ( get_website_theme() == 'zenith' ) {
+        $smp->site_name = 'Zenith Voyages';
+        $smp->facebook_id = '250511685428818';
+    } else {
+        $smp->site_name = 'Transcontinental';
+        $smp->facebook_id = '250511685428818';
+    }
+
+    global $post;
     if (is_single() || is_page()) {
 
         $post_id = get_the_ID();
@@ -695,12 +766,14 @@ function social_meta_properties(){
             $smp->image =   get_template_directory_uri() . '/img/transcontinental_share.jpg';
         }
         $smp->url = get_the_permalink();
+        $smp->type = 'article';
 
     } else {
         $smp->title =    get_bloginfo('name');
         $smp->description = get_bloginfo('description');
         $smp->image =   get_template_directory_uri() . '/img/transcontinental_share.jpg';
         $smp->url = get_home_url();
+        $smp->type = 'website';
     }
 
 

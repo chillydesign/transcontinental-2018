@@ -1,0 +1,82 @@
+
+/* blue #04A4CC */
+/* darker blue #0A7692 */
+
+
+
+#nav #show_nav_button {
+    background: #04A4CC;
+}
+
+
+.activenavli a {
+    background-color: #04A4CC;
+}
+
+.activenavli ul li a {
+    color: #04A4CC!important;
+}
+
+
+.instafeed_container h2 {
+    background: #04A4CC;
+
+}
+
+section a:link, section a:visited {
+    color:#04A4CC;
+    border-bottom: 1px solid #04A4CC;
+
+}
+
+#nav a{
+    color:#04A4CC;
+}
+
+#nav a:hover,
+.current_page_item,
+.current_page_ancestor,
+#nav .current-menu-item a,
+#nav .current_page_ancestor a {
+    background-color: #04A4CC;
+}
+
+
+#nav li:hover a {
+    background-color: #04A4CC;
+}
+
+.sidebar_inner {
+    border-left: solid 2px #04A4CC;
+
+}
+
+.sidebar a:hover {
+    color:#04A4CC;
+}
+
+#social_bar ul li a {
+    background: #04A4CC;
+}
+
+
+
+#nav ul ul li:hover a {
+background: #0A7692;
+}
+
+#social_bar ul li span.tittle {
+  background: #0A7692;
+}
+
+#social_bar ul li span.tittle:after {
+    border-color: transparent transparent transparent #0A7692;
+}
+
+#social_bar ul li:hover a {
+    background: #0A7692;
+}
+
+.category_menu li.current_cat {
+	background: #0A7692;
+}

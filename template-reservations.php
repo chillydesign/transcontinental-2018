@@ -1,6 +1,7 @@
 <?php /* Template Name: Reservations Template */ get_header(); ?>
-
-<div class="page_image" style="background-image:url('<?php if ( has_post_thumbnail()) :  ?><?php echo the_post_thumbnail_url(); ?><?php else: ?><?php echo get_home_url(); ?>/wp-content/uploads/2018/10/slide2-1.jpg'<?php endif; ?>)">
+<?php $tdu = get_template_directory_uri(); ?>
+<?php $home_url = get_home_url(); ?>
+<div class="page_image" style="background-image:url('<?php if ( has_post_thumbnail()) :  ?><?php echo the_post_thumbnail_url(); ?><?php else: ?><?php echo $home_url; ?>/wp-content/uploads/2018/10/slide2-1.jpg'<?php endif; ?>)">
 	<div class="container">
 		<h1><?php the_title(); ?></h1>
 	</div>
@@ -20,7 +21,7 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="reservation_box">
-					<div class="offre_img" style="background-image:url(<?php echo get_template_directory_uri();?>/img/plane.jpg)">
+					<div class="offre_img" style="background-image:url(<?php echo $tdu ;?>/img/plane.jpg)">
 
 						<h3 class="white_title">Trouver</h3>
 					</div>
@@ -38,7 +39,7 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="reservation_box">
-					<div class="offre_img" style="background-image:url(<?php echo get_template_directory_uri();?>/img/hotel.jpg)">
+					<div class="offre_img" style="background-image:url(<?php echo $tdu;?>/img/hotel.jpg)">
 
 						<h3 class="white_title">Rechercher</h3>
 					</div>
@@ -56,7 +57,7 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="reservation_box">
-					<div class="offre_img" style="background-image:url(<?php echo get_template_directory_uri();?>/img/car.jpg)">
+					<div class="offre_img" style="background-image:url(<?php echo $tdu;?>/img/car.jpg)">
 
 						<h3 class="white_title">Réserver</h3>
 					</div>
@@ -79,7 +80,7 @@
 <div class="program">
 	<div class="container">
 		<h2>Besoin d'aide? Nous sommes là pour vous aider.</h2>
-		<a href="<?php echo get_home_url(); ?>/demande-de-renseignements" class="button"><h6>Contactez-nous</h6></a>
+		<a href="<?php echo  $home_url; ?>/demande-de-renseignements" class="button"><h6>Contactez-nous</h6></a>
 	</div>
 </div>
 
