@@ -18,6 +18,12 @@ h6 a, a h6 {
 }
 
 
+.offer_label {
+    background: #04A4CC;
+
+}
+
+
 .activenavli a {
     background-color: #04A4CC;
 }
