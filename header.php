@@ -4,6 +4,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
     <?php chilly_site_favicons(); ?>
+    
 	<link href="//www.google-analytics.com" rel="dns-prefetch">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,400italic,700italic' rel='stylesheet' type='text/css'>

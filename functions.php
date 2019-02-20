@@ -710,20 +710,26 @@ function thumbnail_of_post_url( $post_id,  $size='large'  ) {
 
 function chilly_site_favicons() {
     $tdu = get_template_directory_uri();
+
+    if ( get_website_theme() == 'zenith' ) {
+        $icon_dir = $tdu . '/img/faviconzenith';
+    } else {
+        $icon_dir = $tdu . '/img/favicon';
+    }
     $icons = array(
-        '<link rel="apple-touch-icon" sizes="57x57" href="' . $tdu . '/img/favicon/apple-icon-57x57.png">',
-        '<link rel="apple-touch-icon" sizes="60x60" href="' . $tdu . '/img/favicon/apple-icon-60x60.png">',
-        '<link rel="apple-touch-icon" sizes="72x72" href="' . $tdu . '/img/favicon/apple-icon-72x72.png">',
-        '<link rel="apple-touch-icon" sizes="76x76" href="' . $tdu . '/img/favicon/apple-icon-76x76.png">',
-        '<link rel="apple-touch-icon" sizes="114x114" href="' . $tdu . '/img/favicon/apple-icon-114x114.png">',
-        '<link rel="apple-touch-icon" sizes="120x120" href="' . $tdu . '/img/favicon/apple-icon-120x120.png">',
-        '<link rel="apple-touch-icon" sizes="144x144" href="' . $tdu . '/img/favicon/apple-icon-144x144.png">',
-        '<link rel="apple-touch-icon" sizes="152x152" href="' . $tdu . '/img/favicon/apple-icon-152x152.png">',
-        '<link rel="apple-touch-icon" sizes="180x180" href="' . $tdu . '/img/favicon/apple-icon-180x180.png">',
-        '<link rel="icon" type="image/png" sizes="192x192" href="' . $tdu . '/img/favicon/android-icon-192x192.png">',
-        '<link rel="icon" type="image/png" sizes="32x32" href="' . $tdu . '/img/favicon/favicon-32x32.png">',
-        '<link rel="icon" type="image/png" sizes="96x96" href="' . $tdu . '/img/favicon/favicon-96x96.png">',
-        '<link rel="icon" type="image/png" sizes="16x16" href="' . $tdu . '/img/favicon/favicon-16x16.png">'
+        '<link rel="apple-touch-icon" sizes="57x57" href="' . $icon_dir . '/apple-icon-57x57.png">',
+        '<link rel="apple-touch-icon" sizes="60x60" href="' . $icon_dir . '/apple-icon-60x60.png">',
+        '<link rel="apple-touch-icon" sizes="72x72" href="' . $icon_dir . '/apple-icon-72x72.png">',
+        '<link rel="apple-touch-icon" sizes="76x76" href="' . $icon_dir . '/apple-icon-76x76.png">',
+        '<link rel="apple-touch-icon" sizes="114x114" href="' . $icon_dir . '/apple-icon-114x114.png">',
+        '<link rel="apple-touch-icon" sizes="120x120" href="' . $icon_dir . '/apple-icon-120x120.png">',
+        '<link rel="apple-touch-icon" sizes="144x144" href="' . $icon_dir . '/apple-icon-144x144.png">',
+        '<link rel="apple-touch-icon" sizes="152x152" href="' . $icon_dir . '/apple-icon-152x152.png">',
+        '<link rel="apple-touch-icon" sizes="180x180" href="' . $icon_dir . '/apple-icon-180x180.png">',
+        '<link rel="icon" type="image/png" sizes="192x192" href="' . $icon_dir . '/android-icon-192x192.png">',
+        '<link rel="icon" type="image/png" sizes="32x32" href="' . $icon_dir . '/favicon-32x32.png">',
+        '<link rel="icon" type="image/png" sizes="96x96" href="' . $icon_dir . '/favicon-96x96.png">',
+        '<link rel="icon" type="image/png" sizes="16x16" href="' . $icon_dir . '/favicon-16x16.png">'
     );
 
     echo implode("\n", $icons);
