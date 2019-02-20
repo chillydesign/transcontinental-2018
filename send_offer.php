@@ -1,8 +1,8 @@
 <?php
 
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
 
 
 
@@ -50,10 +50,8 @@ if(isset($_POST['email'])) {
 
 
 
-
-
       // create email headers
-      // add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+      add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
       $to = 'harvey.charles@gmail.com';
       $subject = 'New Offer Request from Transco';
       $email_message = "<h3>Offre:</h3> \n" . $offer_title . "\n\n";
@@ -62,14 +60,23 @@ if(isset($_POST['email'])) {
       $email_message .= "<h3>Nombre de personnes:</h3>\n" . $number . "\n\n";
       $email_message .= "<h3>Message:</h3> \n" . $message . "\n\n";
 
-
-      if( wp_mail( $to, $subject, $email_message) ){
+      $mailResult = wp_mail( $email, $subject, $email_message);
+      if(  $mailResult ){
             echo 'Message sent successfully' ;
       }  else {
-           echo 'Message not sent' ;
+           echo  'Message not sent' ;
+          // global $ts_mail_errors;
+          // global $phpmailer;
+          // if (!isset($ts_mail_errors)) $ts_mail_errors = array();
+          // if (isset($phpmailer)) {
+          //     $ts_mail_errors[] = $phpmailer->ErrorInfo;
+          // }
+          //
+          // echo json_encode($ts_mail_errors);
+
       }
 
-      // remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+      remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
 
 
     }
