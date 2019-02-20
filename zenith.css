@@ -2,7 +2,9 @@
 /* blue #04A4CC */
 /* darker blue #0A7692 */
 
-
+button.slick-arrow {
+    filter: grayscale(1);
+}
 
 h6 a, a h6 {
 	background: #04A4CC;
