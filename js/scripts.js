@@ -204,6 +204,69 @@ $(function() {
 
 
 
+    $send_offer_form = $('#send_offer');
+    if (typeof send_offer_url !== 'undefined') {
+
+        $send_offer_form.submit(function(e){
+
+            e.preventDefault();
+
+
+            var $form = $(this);
+            var $name = $('#name');
+            var $email = $('#email');
+            var $message = $('#message');
+            var $number = $('#number');
+            var $offer_title = $('#offer_title');
+
+            $errors = [];
+
+            if ( $email.val()  == '' ) {
+                $errors.push("Please enter an email address");
+            }
+            else if ( $email.val().indexOf("@") < 0  ) {
+                $errors.push("Your email address is not valid.");
+            }
+            if( $message.val() == ''   ) {
+                $errors.push("Please enter a message");
+            }
+
+            if ( $errors.length > 0  ) {
+                $('#sendOfferResponse').html(  $errors.join('<br/>')  ).addClass('warning').removeClass('success') ;
+            } else {  // EMAIL IS GOOD SEND
+
+
+
+                $.ajax({
+                    url: send_offer_url,
+                    type: "POST",
+                    data: {
+                        name: $name.val(),
+                        email: $email.val(),
+                        message: $message.val(),
+                        number: $number.val(),
+                        offer_title: $offer_title.val()
+
+                    },
+                    success:function(data){
+                        $('#sendOfferResponse').html(data ).addClass('success').removeClass('warning');
+                        $('input[type="text"], input[type="email"], textarea').val('');
+                    },
+                    error:function(data){
+                        $('#sendOfferResponse').html(data ).addClass('warning').removeClass('success');
+
+                    }
+                });
+                // UPDATE MESSAGE
+
+
+            }
+
+        }); // end of $send_offer_form
+    } // if typeof send_offer_url
+
+
+
 
 
 	$('#show_nav_button').on('click', function(){

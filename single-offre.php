@@ -58,26 +58,33 @@
 									<?php $offre_number_time= strtotime(get_field('offer_end')); ?>
 
 										<p>
-										<?php if(get_field('more_info')): ?>
-											<?php the_field('more_info'); ?><br>
+                                        <?php $more_info = get_field('more_info'); ?>
+										<?php if( $more_info ): ?>
+											<?php echo $more_info; ?><br>
 										<?php endif; ?>
 										Offre valide jusqu'au <?php echo date('d.m.Y', $offre_number_time); ?>
 									</p>
-									<?php if(get_field('download')): ?>
-									<a href="<?php the_field('download'); ?>" target="_blank" class="doc_link"><h6>Télécharger la documentation</h6></a>
+
+                                    <?php $download = get_field('download'); ?>
+									<?php if( $download ): ?>
+									<a href="<?php echo $download; ?>" target="_blank" class="doc_link"><h6>Télécharger la documentation</h6></a>
 										<?php endif; ?>
 									<h3 id="reserver">Réserver</h3>
-									<form action="#">
-										<label for="nom">Votre nom</label>
-										<input type="text" name="nom" required>
+									<form id="send_offer" action="send_offer.php">
+										<label for="name">Votre nom</label>
+										<input type="text" id="name" name="name" required />
 										<label for="email">Votre email</label>
-										<input type="email" name="email" required>
-										<label for="nombre">Nombre de personnes</label>
-										<input type="number" name="nombre">
+										<input type="email" id="email" name="email" required />
+										<label for="number">Nombre de personnes</label>
+										<input type="number" id="number" name="number" />
 										<label for="message">Message</label>
-										<textarea name="message" id="" cols="30" rows="10"></textarea>
-										<input type="submit" value="Envoyer une demande de réservation">
+										<textarea name="message" id="message" cols="30" rows="10"></textarea>
+										<button type="submit">Envoyer une demande de réservation</button>
+                                        <input type="hidden"  id="offer_title" name="offer_title" value="<?php echo get_the_title(); ?>" />
+                                        <p id="sendOfferResponse"></p>
 									</form>
+                                    <?php $tdu = get_template_directory_uri(); ?>
+                                    <script> var send_offer_url = '<?php echo $tdu; ?>/send_offer.php';</script>
 
 								</div>
 
@@ -91,8 +98,6 @@
 
 					<?php else :  ?>
 						<?php the_content(); // Dynamic Content ?>
-						<?php if(get_field('contact')){echo $contact;} ?>
-						<?php echo $backtonews; ?>
 					<?php endif; ?>
 
 
