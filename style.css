@@ -254,6 +254,9 @@ header#header {
 		color: #cd1719!important;
 	}
 
+	#nav ul ul li a {
+	    border-left: 0!important;
+	}
 
 	@media (min-width: 992px){
 
@@ -591,6 +594,11 @@ min-width: 250px;
 		background-size: auto 100%;
 		background-repeat: no-repeat;
 		background-position: right;
+		margin-bottom: -70px;
+	}
+
+	.program.zenith_program {
+		background-image: none;
 	}
 
 	.message {position: absolute;top:45%; width: 100%; text-align: center;}
@@ -921,11 +929,16 @@ span.featherlight-next span {right: 8px;}
 aside.sidebar {margin-top: 15px}
 section#main_col {
 	padding-right: 25px !important;
+	margin-top: 30px;
 }
+
+
 .sidebar_inner {
-	border-left: solid 2px #c0081f;
-	padding-left: 25px !important;
-	padding-bottom: 20px;
+    margin-top: 60px;
+    border: 0;
+    background: #f2f2f2;
+		padding-left: 25px !important;
+		padding-bottom: 20px;
 }
 
 /*.sidebar_inner ul.siblings li:first-child a, .sidebar_inner ul.siblings li:first-child {
@@ -1195,12 +1208,13 @@ span.not_found {
 
 .instafeed_container h2 {
     background: #cd1719;
-    padding: 10px 0;
+    padding: 3px 0;
     color: white;
     opacity: 0.9;
     text-transform: uppercase;
     font-size: 16px;
     margin: 0;
+		border-bottom: solid 3px white;
 }
 
 #instafeed {
@@ -1210,7 +1224,7 @@ span.not_found {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-
+		border-bottom: solid 3px white;
 }
 
 

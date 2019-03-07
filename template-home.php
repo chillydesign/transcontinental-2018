@@ -180,7 +180,7 @@ endif; # no slider use featured image
 			<div class="col-sm-4 map_height">
                 <?php $florissant_photo =  get_field('florissant_photo'); ?>
 				<div class="offre_img" style="background-image:url(<?php echo $florissant_photo['sizes']['medium']; ?>)">
-					<h3 class="white_title">Agence de Florissant</h3>
+					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Gland';} else {echo 'Agence de Florissant'; } ?></h3>
 				</div>
 				<div class="offre_content" style="padding-top:10px;">
 					<?php echo get_field('florissant'); ?>
@@ -189,18 +189,28 @@ endif; # no slider use featured image
 			<div class="col-sm-4 map_height">
                 <?php $chene_photo =  get_field('chene_photo'); ?>
 				<div class="offre_img" style="background-image:url(<?php echo $chene_photo['sizes']['medium']; ?>)">
-					<h3 class="white_title">Agence de Chêne</h3>
+					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Nyon';} else {echo 'Agence de Chêne'; } ?></h3>
 				</div>
 				<div class="offre_content" style="padding-top:10px;">
 					<?php echo get_field('chene'); ?>
 				</div>
 			</div>
+
+      <?php if(is_zenith()) : ?>
+        <script>
+        	var locations = [[46.4226507, 6.2615992, 'Agence Gland'], [46.3826367, 6.2362164, 'Agence Nyon']];
+        </script>
+      <?php else: ?>
+      <script>
+      	var locations = [[46.192858, 6.162241, 'Agence Florissant'], [46.193973, 6.195679, 'Agence Chêne']];
+      </script>
+    <?php endif; ?>
 			<div class="col-sm-4"><div class="map_height" id="agencymap"></div></div>
 		</div>
 	</div>
 </div>
 
-<div class="program">
+<div class="program <?php if(is_zenith()){echo 'zenith_program';} ?>">
 	<div class="container">
 		<h2>Programmez votre prochain voyage</h2>
 		<a href="<?php echo  $home_url; ?>/demande-de-renseignements" class="button"><h6>Contactez-nous</h6></a>

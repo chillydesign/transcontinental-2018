@@ -377,6 +377,9 @@ $(function() {
 
 	$('.map_height').matchHeight();
 
+
+if(typeof locations != 'undefined' ){
+
 	var map_container = $('#agencymap');
 	map_container.css({
 		width : '100%'
@@ -388,7 +391,7 @@ $(function() {
 	});
 
 	var marker, i;
-	var locations = [[46.192858, 6.162241, 'Agence Florissant'], [46.193973, 6.195679, 'Agence Chêne']]
+  //location is set in php in template-home.php
 	var bounds = new google.maps.LatLngBounds();
 	var infowindow = new google.maps.InfoWindow({content: '...'});
 	for (i = 0; i < locations.length; i++) {
@@ -408,7 +411,7 @@ $(function() {
 
 	agencymap.fitBounds(bounds);
 
-
+}  // end of if locations defined
 
 
 });

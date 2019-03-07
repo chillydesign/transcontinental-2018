@@ -63,10 +63,6 @@ section a:link, section a:visited {
     background-color: #04A4CC;
 }
 
-.sidebar_inner {
-    border-left: solid 2px #04A4CC;
-
-}
 
 .sidebar a:hover {
     color:#04A4CC;
@@ -96,4 +92,12 @@ background: #0A7692;
 
 .category_menu li.current_cat {
 	background: #0A7692;
+}
+
+input[type="submit"], button[type="submit"], a.list_button {
+  background: #04A4CC;
+}
+
+input[type="submit"]:hover , button[type="submit"]:hover , a.list_button:hover  {
+  background: #0A7692;
 }

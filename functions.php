@@ -27,6 +27,10 @@ function get_website_theme() {
     global $website_theme;
     return $website_theme;
 }
+
+function is_zenith(){
+  return (get_website_theme()  == 'zenith' );
+}
 // USE TO SWITCH BETWEEN transcontinental and zenith themes
 
 
