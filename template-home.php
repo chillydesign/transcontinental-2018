@@ -50,16 +50,28 @@ endif; # no slider use featured image
 
 	<div class="offers">
 		<div class="container">
-			<?php $offres_arg = array(
+
+			<?php
+            $today = date("Y-m-d");
+            $offres_arg = array(
 				'post_type' => 'offre',
 				"posts_per_page" => 6,
 				'meta_key'	=> 'offer_end',
 				'orderby' => 'meta_value',
-				"order"  => "ASC"
-			); ?>
-			<?php $offres_loop = new WP_Query( $offres_arg );
+                "order"  => "ASC",
+                'meta_query' => array(
+                    array(
+                        'key' => 'offer_end', // Check the start date field is
+                        'value' => $today,
+                        'compare' => '>=',
+                        'type' => 'DATE'
+                    )
 
-			if ( $offres_loop -> have_posts() ) : ?>
+                )
+			); ?>
+			<?php $offres_loop = new WP_Query( $offres_arg ); ?>
+            <?php $offres_loop_count = $offres_loop->post_count;  var_dump($offres_loop_count)?>
+			<?php if ( $offres_loop -> have_posts() ) : ?>
 			<div class="offers_slider_container">
 				<div id="offers_slider">
 					<?php while ( $offres_loop -> have_posts() ) :
