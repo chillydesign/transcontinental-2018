@@ -61,7 +61,7 @@ endif; # no slider use featured image
                 "order"  => "ASC",
                 'meta_query' => array(
                     array(
-                        'key' => 'offer_end', // Check the start date field is
+                        'key' => 'offer_end', // Check the offerend date field is in the future
                         'value' => $today,
                         'compare' => '>=',
                         'type' => 'DATE'
@@ -70,73 +70,52 @@ endif; # no slider use featured image
                 )
 			); ?>
 			<?php $offres_loop = new WP_Query( $offres_arg ); ?>
-            <?php $offres_loop_count = $offres_loop->post_count;  var_dump($offres_loop_count)?>
-			<?php if ( $offres_loop -> have_posts() ) : ?>
+            <?php $offres_loop_count = $offres_loop->post_count; ?>
+
 			<div class="offers_slider_container">
 				<div id="offers_slider">
-					<?php while ( $offres_loop -> have_posts() ) :
-						$offres_loop -> the_post(); ?>
+                    <?php if ( $offres_loop -> have_posts() ) : ?>
+                        <?php while ( $offres_loop -> have_posts() ) :
+                            $offres_loop -> the_post(); ?>
+                            <?php get_template_part('offer_template'); ?>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                    <?php wp_reset_query(); ?>
 
-						<div class="offre">
-                            <?php $offre_time = get_field('offer_end'); ?>
-							<?php if( $offre_time  ):?>
-								<?php $offre_number_time = strtotime( $offre_time ); ?>
-								<?php $time = time(); ?>
-								<?php $diff = $offre_number_time - $time; ?>
-								<?php if($diff < 0): ?>
-									<div class="offer_label expired_offer_label">offre expirée</div>
-								<?php else : ?>
-									<div class="offer_label">jusqu'au <?php echo date('d.m.Y', $offre_number_time); ?></div>
-								<?php endif; ?>
-							<?php endif; ?>
-							<div style="clear:both;"></div>
-                            <?php $offre_img = thumbnail_of_post_url(get_the_ID(), 'medium');  ?>
-							<div class="offre_img" style="background-image:url(<?php echo $offre_img; ?>)">
+                    <?php if ($offres_loop_count < 6) : ?>
+                        <?php
+                        $offers_required = 6 - $offres_loop_count;
+                        $offres_old_arg = array(
+                            'post_type' => 'offre',
+                            "posts_per_page" => $offers_required,
+                            'meta_key'	=> 'offer_end',
+                            'orderby' => 'meta_value',
+                            "order"  => "ASC",
+                            'meta_query' => array(
+                                array(
+                                    'key' => 'offer_end', // Check the offerend date field is in the past
+                                    'value' => $today,
+                                    'compare' => '<',
+                                    'type' => 'DATE'
+                                )
+                            )
+                        ); ?>
+                        <?php $offres_loop_old = new WP_Query( $offres_old_arg ); ?>
+                        <?php if ( $offres_loop_old -> have_posts() ) : ?>
+                            <?php while ( $offres_loop_old -> have_posts() ) :
+                                $offres_loop_old -> the_post(); ?>
+                                <?php get_template_part('offer_template'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                        <?php wp_reset_query(); ?>
 
-								<h3 class="white_title"><?php echo get_field('white_title'); ?></h3>
-							</div>
-							<div class="offre_content">
-								<div class="allbutlink">
-									<h3 class="black_title"><?php echo get_field('black_title'); ?></h3>
-									<div class="excerpt">
-                                        <?php $extract = get_field('extract'); ?>
-										<?php if( $extract ): ?>
-											<p><?php echo $extract; ?></p>
-										<?php else: ?>
-											<?php
-											$content = str_replace('! ', '. ', get_field('content'));
-											$content = str_replace('</h2>', '. ', $content);
-											$content = strip_tags($content);
-											$content = '<p>' . strip_tags($content) . '</p>';
-											$dot = ".";
+                    <?php endif; // if we need to fill up the offers loop ?>
 
-											$position = stripos($content, $dot); //find first dot position
 
-											if($position) { //if there's a dot in our source text do
-												$offset = $position + 1; //prepare offset
-												$position2 = stripos ($content, $dot, $offset); //find second dot using offset
-												$first_two = substr($content, 0, $position2); //put two first sentences under $first_two
 
-												echo $first_two . '.'; //add a dot
-											}
-
-											else {  //if there are no dots
-												//do nothing
-											}
-											?>
-										<?php endif; ?>
-									</div>
-
-								</div>
-								<a class="readmore" href="<?php the_permalink();?>"><h6>afficher l'offre</h6></a>
-							</div>
-						</div>
-
-					<?php endwhile; ?>
 				</div>
 			</div>
-		<?php endif; ?>
-		<?php wp_reset_query(); ?>
+
 		<a href="<?php echo $home_url; ?>/offre" class="button" style="display:block; text-align:center;"><h6>Découvrir toutes nos offres</h6></a>
 
 	</div>
