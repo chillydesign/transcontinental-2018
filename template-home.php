@@ -53,9 +53,10 @@ endif; # no slider use featured image
 
 			<?php
             $today = date("Y-m-d");
+            $offers_to_show = 6;
             $offres_arg = array(
 				'post_type' => 'offre',
-				"posts_per_page" => 6,
+				"posts_per_page" => $offers_to_show,
 				'meta_key'	=> 'offer_end',
 				'orderby' => 'meta_value',
                 "order"  => "ASC",
@@ -82,9 +83,9 @@ endif; # no slider use featured image
                     <?php endif; ?>
                     <?php wp_reset_query(); ?>
 
-                    <?php if ($offres_loop_count < 12) : ?>
+                    <?php if ($offres_loop_count < $offers_to_show) : ?>
                         <?php
-                        $offers_required = 6;
+                        $offers_required = $offers_to_show - $offres_loop_count;
                         $offres_old_arg = array(
                             'post_type' => 'offre',
                             "posts_per_page" => $offers_required,
