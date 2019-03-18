@@ -342,8 +342,9 @@ $(function() {
     if ( $('#instafeed').length  ) {
         var feed = new Instafeed({
             get: 'user',
-            userId: 349717879,
-            accessToken: '349717879.1677ed0.9f51e62ce0034d3baa1be090f1855602',
+            clientId:  'd37968ca616b48de9d142b1a33bee2fa',
+            userId: 10715708705,
+            accessToken: '10715708705.d37968c.b4af47eea4f744cbbfca3f49b17d35ba',
             sortBy: 'most-recent',
             limit: 6,
             resolution: 'standard_resolution',
