@@ -82,9 +82,9 @@ endif; # no slider use featured image
                     <?php endif; ?>
                     <?php wp_reset_query(); ?>
 
-                    <?php if ($offres_loop_count < 6) : ?>
+                    <?php if ($offres_loop_count < 12) : ?>
                         <?php
-                        $offers_required = 6 - $offres_loop_count;
+                        $offers_required = 6;
                         $offres_old_arg = array(
                             'post_type' => 'offre',
                             "posts_per_page" => $offers_required,
