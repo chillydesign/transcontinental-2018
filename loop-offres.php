@@ -22,7 +22,7 @@ $offres_arg = array(
 		"order"  => "DESC"
 	);
 
-    if ($term) :
+    if (isset($term->slug)) :
         $offres_arg['term'] =  $term->slug;
     endif;
  ?>
