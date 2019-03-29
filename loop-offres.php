@@ -1,7 +1,6 @@
 <?php
 $today = current_time('Ymd');
 $term = get_queried_object();
-$cat = $term->slug;
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 $offres_arg = array(
@@ -22,6 +21,10 @@ $offres_arg = array(
 		'orderby' => 'meta_value',
 		"order"  => "DESC"
 	);
+
+    if ($term) :
+        $offres_arg['term'] =  $term->slug;
+    endif;
  ?>
 <?php $offres_loop = new WP_Query( $offres_arg ); ?>
 
