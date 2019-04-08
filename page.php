@@ -102,10 +102,9 @@
 </div> <!-- END OF CONTAINER -->
 
 
-<?php if ( get_the_title() == 'Contact' ) : ?>
-
-<section style="margin: 0px 0 -20px;"><div id="agencymap"></div></section>
-<script type="text/javascript" src="//maps.google.com/maps/api/js?key=<?php google_maps_key(); ?>"></script>
+<?php if (  get_the_title() == 'Contact' ) : ?>
+<!-- <section style="margin: 0px 0 -20px;"><div id="agencymap"></div></section> -->
+<!-- <script type="text/javascript" src="//maps.google.com/maps/api/js?key=<?php google_maps_key(); ?>"></script> -->
 <?php endif; ?>
 
 
