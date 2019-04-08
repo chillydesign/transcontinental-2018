@@ -34,7 +34,7 @@
 
 					<?php if ($page_icons) : ?>
 
-	
+
 						<br>
 						<div class="img_gallery ">
 							<?php foreach($page_icons as $image): ?>
@@ -48,13 +48,13 @@
 
 
 
-			
+
 
 			<?php $self = $wp_query->post->ID; ?>
 			<?php $parent = wp_get_post_parent_id($self); ?>
-			<?php $children = get_page_siblings(get_the_ID() ); ?> 
+			<?php $children = get_page_siblings(get_the_ID() ); ?>
 			<?php if (sizeof($children) > 2 ): ?>
-					<hr> 
+					<hr>
 				<br>
 				<h3>A découvrir aussi</h3>
 				<br>
@@ -81,7 +81,7 @@
 			<br>
 
 			<h3>Contactez-nous</h3>
-							
+
 
 			<div class="row">
 				<div class="col-sm-4">
@@ -147,7 +147,7 @@
 <?php if ( get_the_title() == 'Contact' ) : ?>
 
 <section style="margin: 0px 0 -20px;"><div id="agencymap"></div></section>
-<script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyAxQfqRqtPLAW4BolFMCxTiv9y--R8CXdU"></script>
+<script type="text/javascript" src="//maps.google.com/maps/api/js?key=<?php google_maps_key(); ?>"></script>
 <?php endif; ?>
 
 

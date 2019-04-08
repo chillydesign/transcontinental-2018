@@ -69,7 +69,7 @@
 
 <?php if ( is_front_page() ): ?>
 	<div id="mylightbox"><div id="googleMap" style="height:300px;width:300px"></div></div>
-	<script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyAxQfqRqtPLAW4BolFMCxTiv9y--R8CXdU"></script>
+	<script type="text/javascript" src="//maps.google.com/maps/api/js?key=<?php google_maps_key(); ?>"></script>
 <?php endif; ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
 <?php wp_footer(); ?>

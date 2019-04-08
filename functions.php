@@ -89,6 +89,15 @@ function wf_version(){
 
 
 
+
+function google_maps_key() {
+
+    echo 'AIzaSyAsIAIeE3FYSHQMTi-PNd5EURPDhQCfxfw';
+
+}
+
+
+
 // HTML5 Blank navigation
 function html5blank_nav()
 {
