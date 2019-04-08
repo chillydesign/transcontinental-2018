@@ -32,7 +32,7 @@
 							</div>
 
 						</div>
-						<a class="readmore" href="#" target="_blank"><h6>Accéder aux listes</h6></a>
+                        <a class="readmore" href="<?php echo get_home_url(); ?>/services" target="_blank"><h6>Accéder aux listes</h6></a>
 					</div>
 				</div>
 			</div>
@@ -50,7 +50,7 @@
 							</div>
 
 						</div>
-						<a class="readmore" href="#" target="_blank"><h6>Créer un bon cadeau</h6></a>
+                        <a class="readmore" href="<?php echo get_home_url(); ?>/services/giftcard" target="_blank"><h6>Créer un bon cadeau</h6></a>
 					</div>
 				</div>
 			</div>
