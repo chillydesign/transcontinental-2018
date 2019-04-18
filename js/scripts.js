@@ -44,6 +44,7 @@ $(function() {
 
 		// normal options...
 		infinite: true,
+        adaptiveHeight: true,
 		autoplay: true,
 		speed: 500,
 		dots: false,
