@@ -151,6 +151,10 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles() {
 
+    // remove gutenberg css
+    wp_dequeue_style( 'wp-block-library' );
+
+
     $tdu = get_template_directory_uri();
     wp_register_style('reset', $tdu . '/css/reset.css', array(), wf_version(), 'all');
     wp_enqueue_style('reset'); // Enqueue it!
@@ -841,6 +845,71 @@ function remove_json_api () {
 
 }
 add_action( 'after_setup_theme', 'remove_json_api' );
+
+
+
+function chilly_json_ld() {
+
+    if( get_website_theme() == 'zenith'   ) {
+
+        echo '<script type="application/ld+json">
+        {
+            "@context": {
+                "@vocab": "http://schema.org/"
+            },
+            "@graph": [
+                {
+                    "@id": "https://zenithvoyages.ch/",
+                    "@type": "Organization",
+                    "name": "Zenith Voyages",
+                    "email" : "info@zenithvoyages.ch",
+                    "url" : "https://zenithvoyages.ch/",
+                    "logo" : "https://zenithvoyages.ch/wp-content/themes/transcontinental-2019/img/faviconzenith/android-icon-192x192.png"
+                },
+                {
+                    "@type": "LocalBusiness",
+                    "parentOrganization": {
+                        "name" : "Zenith Voyages"
+                    },
+                    "name" : "Agence de Gland",
+                    "image" : "https://zenithvoyages.ch/wp-content/themes/transcontinental-2019/img/faviconzenith/android-icon-192x192.png",
+                    "address": {
+                        "@type" : "PostalAddress",
+                        "streetAddress": "9, Avenue du Mont-Blanc",
+                        "addressLocality": "Gland",
+                        "addressRegion": "Vaud",
+                        "postalCode": "CH-1196",
+                        "telephone" : "+41 22 518 39 77",
+                        "email" : "info@zenithvoyages.ch"
+                    },
+                    "openingHours": [ "Mo-Fr 08:30-18:00", "Sa 09:00-12:00"]
+                },
+                {
+                    "@type": "LocalBusiness",
+                    "parentOrganization": {
+                        "name" : "Zenith Voyages"
+                    },
+                    "name" : "Agence de Nyon",
+                    "image" : "https://zenithvoyages.ch/wp-content/themes/transcontinental-2019/img/faviconzenith/android-icon-192x192.png",
+                    "address": {
+                        "@type" : "PostalAddress",
+                        "streetAddress": "6, place Bel-Air",
+                        "addressLocality": "Nyon",
+                        "addressRegion": "Vaud",
+                        "postalCode": "CH-1260",
+                        "telephone" : "+41 22 362 98 80",
+                        "email" : "nyon@zenithvoyages.ch"
+                    },
+                    "openingHours": [ "Mo-Fr 09:00-18:00", "Sa 09:00-12:00"]
+                }
+            ]
+        }
+        </script>';
+
+    }
+
+}
+
 
 
 
