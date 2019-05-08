@@ -1,5 +1,50 @@
 <?php get_header(); ?>
 
+<?php  if (get_website_theme() == 'zenith') :
+	$contact = '
+		<div class="row" style="max-width: 600px;">
+		<div class="col-sm-12"><h3>Contacts & Réservations</h3></div>
+		<p class="col-sm-12">Nos conseillers spécialisés sont à votre disposition pour vous aider à faire le bon choix.</p>
+			<p class="col-sm-6">
+				<strong>ZENITH VOYAGES Gland </strong><br>
+				9, avenue du Mont-Blanc<br>
+1196 Gland<br>
+T +41 22 364 46 91<br>
+<a href="mailto:info@zenithvoyages.ch">info@zenithvoyages.ch</a>
+			</p>
+			<p class="col-sm-6">
+				<strong>ZENITH VOYAGES Nyon </strong><br>
+				6, place Bel-Air<br>
+			1260 Nyon<br>
+				T +41 22 362 98 80 <br>
+				<a href="mailto:nyon@zenithvoyages.ch">nyon@zenithvoyages.ch</a>
+			</p>
+		</div>
+	';
+	else :
+
+$contact = '
+	<div class="row" style="max-width: 600px;">
+	<div class="col-sm-12"><h3>Contacts & Réservations</h3></div>
+	<p class="col-sm-12">Nos conseillers spécialisés sont à votre disposition pour vous aider à faire le bon choix.</p>
+		<p class="col-sm-6">
+			<strong>TRANSCONTINENTAL Florissant </strong><br>
+			66, route de Florissant<br>
+			CH – 1206 Genève <br>
+			T +41 22 347 27 27 <br>
+			<a href="mailto:info@transcontinental.ch">info@transcontinental.ch</a>
+		</p>
+		<p class="col-sm-6">
+			<strong>TRANSCONTINENTAL Chêne-Bourg </strong><br>
+			48, rue de Genève<br>
+			CH – 1225 Chêne-Bourg<br>
+			T +41 22 869 18 18 <br>
+			<a href="mailto:chene@transcontinental.ch">chene@transcontinental.ch</a>
+		</p>
+	</div>
+';
+endif; ?>
+
 
 <!-- <div id="featured_slide"><?php  //get_template_part('slides'); ?></div> -->
 <div class="page_image" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>')">
@@ -44,6 +89,8 @@
 										</div>
 									</div>
 								<?php endif; ?>
+
+								<?php if(get_field('contact')){echo $contact;} ?>
 
 
 
