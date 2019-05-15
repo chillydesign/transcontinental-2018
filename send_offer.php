@@ -68,7 +68,7 @@ if(isset($_POST['email'])) {
       $email_message .= "Nombre de personnes:\n" . $number . "\n\n";
       $email_message .= "Message: \n" . $message . "\n\n";
 
-      $mailResult = wp_mail( $email, $subject, $email_message);
+      $mailResult = wp_mail( $to, $subject, $email_message);
       if(  $mailResult ){
             echo 'Le message a bien été envoyé' ;
       }  else {
