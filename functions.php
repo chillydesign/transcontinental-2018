@@ -777,13 +777,16 @@ function social_meta_properties(){
     }
 
     global $post;
+
+
     if (is_single() || is_page()) {
 
         $post_id = get_the_ID();
-        $excerpt  =  get_the_excerpt();
-        if ($excerpt == '') $excerpt =  wp_trim_words($post->post_content,20);
         $smp->title = get_the_title();
-        $smp->description = $excerpt;
+        // $excerpt  =  get_the_excerpt();
+        // if ($excerpt == '') $excerpt =  wp_trim_words($post->post_content,20);
+        // $smp->description = $excerpt;
+        $smp->description = get_bloginfo('description');
         $smp->image =  thumbnail_of_post_url( $post_id, 'large' );
         if ($smp->image == '') {
             $smp->image =   get_template_directory_uri() . '/img/transcontinental_share.jpg';
