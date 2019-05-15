@@ -28,13 +28,13 @@ if(isset($_POST['email'])) {
 
     if( !isset($_POST['email']) || !isset($_POST['message'])) {
 
-         echo 'Message not sent' ;
+         echo 'Le message n\'a pas pu être envoyé.' ;
 
     } else {
 
 
 
-      $name = (isset($_POST['name'])) ?   $_POST['name'] : 'Someone'  ; // required
+      $name = (isset($_POST['name'])) ?   $_POST['name'] : 'Client'  ; // required
       $email = $_POST['email']; // required
       $message = $_POST['message']; // required
       $number = $_POST['number'];
@@ -52,8 +52,16 @@ if(isset($_POST['email'])) {
 
       // create email headers
       // add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
-      $to = 'harvey.charles@gmail.com';
-      $subject = 'New Offer Request from Transco';
+      if (get_website_theme() == 'zenith') {
+        $to = 'info@zenithvoyages.ch';
+        $to = 'rissel.melissa+zenith@gmail.com';
+        $subject = 'Nouvelle demande - offre Zenith' . $offer_title;
+      }
+      else{
+        $to = 'info@zenithvoyages.ch';
+        $to = 'rissel.melissa+transco@gmail.com';
+        $subject = 'Nouvelle demande - offre Transcontinental' . $offer_title;
+      }
       $email_message = "Offre: \n" . $offer_title . "\n\n";
       $email_message .= "Nom: \n" . $name . "\n\n";
       $email_message .= "Email:\n" . $email . "\n\n";
