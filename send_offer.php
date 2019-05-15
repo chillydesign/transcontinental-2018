@@ -55,12 +55,12 @@ if(isset($_POST['email'])) {
       if (get_website_theme() == 'zenith') {
         $to = 'info@zenithvoyages.ch';
         $to = 'rissel.melissa+zenith@gmail.com';
-        $subject = 'Nouvelle demande - offre Zenith' . $offer_title;
+        $subject = 'Nouvelle demande - offre Zenith - ' . $offer_title;
       }
       else{
         $to = 'info@zenithvoyages.ch';
         $to = 'rissel.melissa+transco@gmail.com';
-        $subject = 'Nouvelle demande - offre Transcontinental' . $offer_title;
+        $subject = 'Nouvelle demande - offre Transcontinental - ' . $offer_title;
       }
       $email_message = "Offre: \n" . $offer_title . "\n\n";
       $email_message .= "Nom: \n" . $name . "\n\n";
@@ -70,9 +70,9 @@ if(isset($_POST['email'])) {
 
       $mailResult = wp_mail( $email, $subject, $email_message);
       if(  $mailResult ){
-            echo 'Message sent successfully' ;
+            echo 'Le message a bien été envoyé' ;
       }  else {
-           echo  'Message not sent' ;
+           echo  'Le message n\'a pas pu être envoyé suite à une erreur.' ;
           // global $ts_mail_errors;
           // global $phpmailer;
           // if (!isset($ts_mail_errors)) $ts_mail_errors = array();
@@ -92,7 +92,7 @@ if(isset($_POST['email'])) {
 
 
 } else {
-  echo "Something gone wrong ";
+  echo "Une erreur s\'est produite.";
 }
 
 
