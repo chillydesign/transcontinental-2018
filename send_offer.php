@@ -54,12 +54,10 @@ if(isset($_POST['email'])) {
       // add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
       if (get_website_theme() == 'zenith') {
         $to = 'info@zenithvoyages.ch';
-        $to = 'rissel.melissa+zenith@gmail.com';
         $subject = 'Nouvelle demande - offre Zenith - ' . $offer_title;
       }
       else{
-        $to = 'info@zenithvoyages.ch';
-        $to = 'rissel.melissa+transco@gmail.com';
+        $to = 'info@transcontinental.ch';
         $subject = 'Nouvelle demande - offre Transcontinental - ' . $offer_title;
       }
       $email_message = "Offre: \n" . $offer_title . "\n\n";
