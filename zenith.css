@@ -68,8 +68,12 @@ section a:link, section a:visited {
     color:#04A4CC;
 }
 
-#social_bar ul li a {
-    background: #04A4CC;
+
+
+@media (min-width: 768px){
+    #social_bar ul li a {
+        background: #04A4CC;
+    }
 }
 
 
