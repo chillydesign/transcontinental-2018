@@ -188,17 +188,30 @@ endif; # no slider use featured image
 				</div>
 			</div>
 
+			<div class="col-sm-4 map_height">
+                <?php $eaux_photo =  get_field('eaux_photo'); ?>
+				<div class="offre_img" style="background-image:url(<?php echo $eaux_photo['sizes']['medium']; ?>)">
+					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Eaux Vives';} else {echo 'Agence de Eaux Vives'; } ?></h3>
+				</div>
+				<div class="offre_content" style="padding-top:10px;">
+					<?php echo get_field('eaux'); ?>
+				</div>
+			</div>
+			 </div> <!--END OF ROW -->
+
       <?php if(is_zenith()) : ?>
         <script>
-        	var locations = [[46.4226507, 6.2615992, 'Agence Gland'], [46.3826367, 6.2362164, 'Agence Nyon']];
+        	var locations = [[46.4226507, 6.2615992, 'Agence Gland'], [46.3826367, 6.2362164, 'Agence Nyon'], [46.2042583,6.1570301, 'Agence Eaux Vives']  ];
         </script>
       <?php else: ?>
       <script>
-      	var locations = [[46.192858, 6.162241, 'Agence Florissant'], [46.193973, 6.195679, 'Agence Chêne']];
+      	var locations = [[46.192858, 6.162241, 'Agence Florissant'], [46.193973, 6.195679, 'Agence Chêne'], [46.2042583,6.1570301, 'Agence Eaux Vives']];
       </script>
     <?php endif; ?>
-			<div class="col-sm-4"><div class="map_height" id="agencymap"></div></div>
-		</div>
+	<div class="row">
+			<div class="col-sm-12"><div class="map_height" id="agencymap"></div></div>
+	</div> <!--END OF ROW -->
+		
 	</div>
 </div>
 
