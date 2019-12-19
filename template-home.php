@@ -208,6 +208,8 @@ endif; # no slider use featured image
       	var locations = [[46.192858, 6.162241, 'Agence Florissant'], [46.193973, 6.195679, 'Agence Chêne'], [46.2042583,6.1570301, 'Agence Eaux Vives']];
       </script>
     <?php endif; ?>
+	<br>
+	<br>
 	<div class="row">
 			<div class="col-sm-12"><div class="map_height" id="agencymap"></div></div>
 	</div> <!--END OF ROW -->
