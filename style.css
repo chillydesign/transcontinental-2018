@@ -712,7 +712,7 @@ h3.white_title {
 .offre_content {
     padding: 10px 15px 30px;
     background: white;
-    min-height: 270px;
+    min-height: 300px;
 }
 
 #offres_list .offre_content {

@@ -1,17 +1,17 @@
-$(function() {
+$(function () {
 
 
-    	$(".header_slider").slick({
-            infinite: true,
-    		autoplay: true,
-    		slidesToShow: 1,
-            dots: false,
-            arrows: false,
-            fade: true,
-            speed: 1000,
-            autoplaySpeed: 3000
+	$(".header_slider").slick({
+		infinite: true,
+		autoplay: true,
+		slidesToShow: 1,
+		dots: false,
+		arrows: false,
+		fade: true,
+		speed: 1000,
+		autoplaySpeed: 3000
 
-        });
+	});
 
 	//Offers slider
 	$(".home #offers_slider").slick({
@@ -44,7 +44,7 @@ $(function() {
 
 		// normal options...
 		infinite: true,
-        adaptiveHeight: true,
+		adaptiveHeight: true,
 		autoplay: true,
 		speed: 500,
 		dots: false,
@@ -53,8 +53,8 @@ $(function() {
 		cssEase: 'linear'
 	});
 
-	$('a#offre_slide').on('click', function(e){
-		$offset = $('header').height() +50;
+	$('a#offre_slide').on('click', function (e) {
+		$offset = $('header').height() + 50;
 		console.log($offset);
 		$("html, body").animate({ scrollTop: $('#reserver').offset().top - $offset }, 1000);
 	});
@@ -62,9 +62,9 @@ $(function() {
 
 
 	$(".img_gallery").justifiedGallery({
-		rowHeight : 150,
+		rowHeight: 150,
 		margins: 4,
-		lastRow : 'justify'
+		lastRow: 'justify'
 	}).on('jg.complete', function () {
 		$('a.gallery').featherlightGallery({
 			previousIcon: '<',
@@ -96,16 +96,16 @@ $(function() {
 
 	var unslider = $('.slideshow').unslider({
 		'animation': 'fade',
-		'nav' : false,
-		'arrows' : true,
-		'autoplay' : true,
-		'delay' : 6000
+		'nav': false,
+		'arrows': true,
+		'autoplay': true,
+		'delay': 6000
 	});
 
 
-	unslider.on('unslider.change', function(event, index, slide) {
+	unslider.on('unslider.change', function (event, index, slide) {
 
-		if(typeof map !== 'undefined'){
+		if (typeof map !== 'undefined') {
 			// MOVE MAP CENTER TO NEW SLIDE LOCATION
 			// var $lat_lon = $('#lat_lon');
 			// var $lat_lon_current = slide[0].dataset.latlon;
@@ -122,12 +122,12 @@ $(function() {
 	var $social_bar = $('#social_bar');
 
 
-	$window.scroll(function(){
+	$window.scroll(function () {
 
 		var windowScroll = $window.scrollTop();
 
 
-		if (windowScroll > (300  ))  {
+		if (windowScroll > (300)) {
 			$header.addClass('visible_header');
 			$social_bar.addClass('visible_bar');
 		} else {
@@ -144,7 +144,7 @@ $(function() {
 	$('.reservation_box .allbutlink').matchHeight();
 	$('.block h4').matchHeight();
 
-	$('.iframe_link').on('click', function(e){
+	$('.iframe_link').on('click', function (e) {
 		e.preventDefault();
 		var $this = $(this);
 
@@ -152,7 +152,7 @@ $(function() {
 
 		loadIframe($this);
 
-		$("html, body").animate({ scrollTop: ( $placetoslide.offset().top  -100 )  }, 2000);
+		$("html, body").animate({ scrollTop: ($placetoslide.offset().top - 100) }, 2000);
 
 	});
 
@@ -166,32 +166,32 @@ $(function() {
 		$message_to_show.html('');
 
 		if (typeof $url != 'undefined') {
-			$piframe.attr({'src' :  $url  });
-			setTimeout(function(){
-				$piframe.css({'height': 700  });
+			$piframe.attr({ 'src': $url });
+			setTimeout(function () {
+				$piframe.css({ 'height': 700 });
 			}, 1000);
 
 
 
 		} else if (typeof $message != 'undefined') {
-			var $piframe = $('#page_iframe').css({'height' : 0});
+			var $piframe = $('#page_iframe').css({ 'height': 0 });
 			$message_to_show.html($message);
 		}
 
 	}
 
 	$firstiframelink = $('.offre_iframe .iframe_link').first();
-	loadIframe( $firstiframelink );
+	loadIframe($firstiframelink);
 
 
-	function iframeresize(){
+	function iframeresize() {
 		var $iframeheight = $('.iframecontained').height();
-		$('.iframecontainer').css({'height' : $iframeheight});
+		$('.iframecontainer').css({ 'height': $iframeheight });
 	}
 	iframeresize();
 
 
-	$('.sidebar_inner').each(function(){
+	$('.sidebar_inner').each(function () {
 		$this = $(this);
 		console.log($this.find('li').size());
 		if ($this.find('li').size() < 2) {
@@ -205,131 +205,131 @@ $(function() {
 
 
 
-    $send_offer_form = $('#send_offer');
-    if (typeof send_offer_url !== 'undefined') {
+	$send_offer_form = $('#send_offer');
+	if (typeof send_offer_url !== 'undefined') {
 
-        $send_offer_form.submit(function(e){
+		$send_offer_form.submit(function (e) {
 
-            e.preventDefault();
-
-
-            var $form = $(this);
-            var $name = $('#name');
-            var $email = $('#email');
-            var $message = $('#message');
-            var $number = $('#number');
-            var $offer_title = $('#offer_title');
-
-            $errors = [];
-
-            if ( $email.val()  == '' ) {
-                $errors.push("Please enter an email address");
-            }
-            else if ( $email.val().indexOf("@") < 0  ) {
-                $errors.push("Your email address is not valid.");
-            }
-            if( $message.val() == ''   ) {
-                $errors.push("Please enter a message");
-            }
-
-            if ( $errors.length > 0  ) {
-                $('#sendOfferResponse').html(  $errors.join('<br/>')  ).addClass('warning').removeClass('success') ;
-            } else {  // EMAIL IS GOOD SEND
+			e.preventDefault();
 
 
+			var $form = $(this);
+			var $name = $('#name');
+			var $email = $('#email');
+			var $message = $('#message');
+			var $number = $('#number');
+			var $offer_title = $('#offer_title');
 
-                $.ajax({
-                    url: send_offer_url,
-                    type: "POST",
-                    data: {
-                        name: $name.val(),
-                        email: $email.val(),
-                        message: $message.val(),
-                        number: $number.val(),
-                        offer_title: $offer_title.val()
+			$errors = [];
 
-                    },
-                    success:function(data){
-                        $('#sendOfferResponse').html(data ).addClass('success').removeClass('warning');
-                        $('input[type="text"], input[type="email"], textarea').val('');
-                    },
-                    error:function(data){
-                        $('#sendOfferResponse').html(data ).addClass('warning').removeClass('success');
+			if ($email.val() == '') {
+				$errors.push("Please enter an email address");
+			}
+			else if ($email.val().indexOf("@") < 0) {
+				$errors.push("Your email address is not valid.");
+			}
+			if ($message.val() == '') {
+				$errors.push("Please enter a message");
+			}
 
-                    }
-                });
-                // UPDATE MESSAGE
-
-
-            }
-
-        }); // end of $send_offer_form
-    } // if typeof send_offer_url
+			if ($errors.length > 0) {
+				$('#sendOfferResponse').html($errors.join('<br/>')).addClass('warning').removeClass('success');
+			} else {  // EMAIL IS GOOD SEND
 
 
 
+				$.ajax({
+					url: send_offer_url,
+					type: "POST",
+					data: {
+						name: $name.val(),
+						email: $email.val(),
+						message: $message.val(),
+						number: $number.val(),
+						offer_title: $offer_title.val()
+
+					},
+					success: function (data) {
+						$('#sendOfferResponse').html(data).addClass('success').removeClass('warning');
+						$('input[type="text"], input[type="email"], textarea').val('');
+					},
+					error: function (data) {
+						$('#sendOfferResponse').html(data).addClass('warning').removeClass('success');
+
+					}
+				});
+				// UPDATE MESSAGE
 
 
-	$('#show_nav_button').on('click', function(){
+			}
+
+		}); // end of $send_offer_form
+	} // if typeof send_offer_url
+
+
+
+
+
+	$('#show_nav_button').on('click', function () {
 		$nav.find('ul.menu').toggle();
 	});
-	$('.menu-item-has-children').on('click', function(){
+	$('.menu-item-has-children').on('click', function () {
 		$(this).children('ul.sub-menu').toggle();
 		$(this).toggleClass('activenavli');
 	});
 
 
-	$('li', $nav).on('mouseover', function(){
+	$('li', $nav).on('mouseover', function () {
 		$this = $(this);
 		$this.find('ul').addClass('ul_child_show');
-	}).on('mouseout', function(){
+	}).on('mouseout', function () {
 		$this.find('ul').removeClass('ul_child_show');
 	});
 
 
 
-	$('.map_location').on('mouseover', function(){
+	$('.map_location').on('mouseover', function () {
 
 		var $lat_lon = $('.unslider-active').data('latlon').split(',');
-		var newLatlng = {lat: parseFloat($lat_lon[0]) , lng: parseFloat($lat_lon[1]) };
-		map.setCenter( newLatlng   );
+		var newLatlng = { lat: parseFloat($lat_lon[0]), lng: parseFloat($lat_lon[1]) };
+		map.setCenter(newLatlng);
 
 	});
 
 	$('.map_location').featherlight('#mylightbox', {
-		beforeOpen: function(){
+		beforeOpen: function () {
 
 
 			// resize if window resized
 			$window = $(window);
-			mapcontainer.css({width : $window.width() * 0.75});
+			mapcontainer.css({ width: $window.width() * 0.75 });
 			google.maps.event.trigger(map, 'resize');
 
 
 
 
 		}
-	} );
+	});
 
 
 
-	var mapcontainer =  $('#googleMap');
+	var mapcontainer = $('#googleMap');
 	var myMapOptions = {
-		zoom:8,
+		zoom: 8,
 		mapTypeControl: false,
 		scrollwheel: true
 	};
 
 
 
-	if ( mapcontainer.length > 0 ){
+	if (mapcontainer.length > 0) {
 		// var $lat_lon = $('.unslider-active').data('latlon').split(',');
 		//    var myLatlng = {lat: parseFloat($lat_lon[0]) , lng: parseFloat($lat_lon[1]) };
 		var map = new google.maps.Map(mapcontainer.get(0), myMapOptions);
 		var $window = $(window);
 		mapcontainer.css({
-			width : $window.width() * 0.75,
-			height : 370
+			width: $window.width() * 0.75,
+			height: 370
 		})
 
 		//	 map.setCenter( myLatlng   );
@@ -339,22 +339,22 @@ $(function() {
 
 
 
-    // instagram
-    if ( $('#instafeed').length  ) {
-        var feed = new Instafeed({
-            get: 'user',
-            clientId:  'd37968ca616b48de9d142b1a33bee2fa',
-            userId: 10715708705,
-            accessToken: '10715708705.d37968c.b4af47eea4f744cbbfca3f49b17d35ba',
-            sortBy: 'most-recent',
-            limit: 6,
-            resolution: 'standard_resolution',
-            template: '<a target="_blank" href="{{link}}" style="background-image:url({{image}})"></a>',
-            success: function(data) {
-            }
-        });
-        feed.run();
-    }
+	// instagram
+	if ($('#instafeed').length) {
+		var feed = new Instafeed({
+			get: 'user',
+			clientId: 'd37968ca616b48de9d142b1a33bee2fa',
+			userId: 10715708705,
+			accessToken: '10715708705.d37968c.b4af47eea4f744cbbfca3f49b17d35ba',
+			sortBy: 'most-recent',
+			limit: 6,
+			resolution: 'standard_resolution',
+			template: '<a target="_blank" href="{{link}}" style="background-image:url({{image}})"></a>',
+			success: function (data) {
+			}
+		});
+		feed.run();
+	}
 
 
 
@@ -365,9 +365,9 @@ $(function() {
 	$agent_links = $('.agent_link');
 	$agent_links.first().addClass('selected');
 
-	$agent_links.on('click', function(e){
+	$agent_links.on('click', function (e) {
 		$this = $(this);
-		$id =  $this.data('id')
+		$id = $this.data('id')
 		$('.agent_section').hide();
 		$('#' + $id).show();
 		$agent_links.removeClass('selected');
@@ -377,43 +377,41 @@ $(function() {
 
 	});
 
-	$('.map_height').matchHeight();
 
+	if (typeof locations != 'undefined') {
 
-if(typeof locations != 'undefined' ){
-
-	var map_container = $('#agencymap');
-	map_container.css({
-		width : '100%'
-	})
-	var agencymap = new google.maps.Map(map_container.get(0), {
-		// center: {lat: latitude , lng: longitude  },
-		zoom: 14,
-		scrollwheel: false
-	});
-
-	var marker, i;
-  //location is set in php in template-home.php
-	var bounds = new google.maps.LatLngBounds();
-	var infowindow = new google.maps.InfoWindow({content: '...'});
-	for (i = 0; i < locations.length; i++) {
-		var location = locations[i];
-		var latlng = new google.maps.LatLng(location[0], location[1]),
-		marker = new google.maps.Marker({
-			position: latlng,
-			map: agencymap,
-			title: location[2]
+		var map_container = $('#agencymap');
+		map_container.css({
+			width: '100%'
+		})
+		var agencymap = new google.maps.Map(map_container.get(0), {
+			// center: {lat: latitude , lng: longitude  },
+			zoom: 14,
+			scrollwheel: false
 		});
-		marker.addListener('click', function() {
-			infowindow.setContent(  this.title);
-			infowindow.open(agencymap, this);
-		});
-		bounds.extend(latlng);
-	}
 
-	agencymap.fitBounds(bounds);
+		var marker, i;
+		//location is set in php in template-home.php
+		var bounds = new google.maps.LatLngBounds();
+		var infowindow = new google.maps.InfoWindow({ content: '...' });
+		for (i = 0; i < locations.length; i++) {
+			var location = locations[i];
+			var latlng = new google.maps.LatLng(location[0], location[1]),
+				marker = new google.maps.Marker({
+					position: latlng,
+					map: agencymap,
+					title: location[2]
+				});
+			marker.addListener('click', function () {
+				infowindow.setContent(this.title);
+				infowindow.open(agencymap, this);
+			});
+			bounds.extend(latlng);
+		}
 
-}  // end of if locations defined
+		agencymap.fitBounds(bounds);
+
+	}  // end of if locations defined
 
 
 });

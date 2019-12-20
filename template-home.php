@@ -169,7 +169,7 @@ endif; # no slider use featured image
 	<div class="container">
 		<h2>Prêt à partir? Retrouvez-nous dans une de nos agences </h2>
 		<div class="row">
-			<div class="col-sm-4 map_height">
+			<div class="col-sm-4 ">
                 <?php $florissant_photo =  get_field('florissant_photo'); ?>
 				<div class="offre_img" style="background-image:url(<?php echo $florissant_photo['sizes']['medium']; ?>)">
 					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Gland';} else {echo 'Agence de Florissant'; } ?></h3>
@@ -178,7 +178,7 @@ endif; # no slider use featured image
 					<?php echo get_field('florissant'); ?>
 				</div>
 			</div>
-			<div class="col-sm-4 map_height">
+			<div class="col-sm-4 ">
                 <?php $chene_photo =  get_field('chene_photo'); ?>
 				<div class="offre_img" style="background-image:url(<?php echo $chene_photo['sizes']['medium']; ?>)">
 					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Nyon';} else {echo 'Agence de Chêne'; } ?></h3>
@@ -188,7 +188,7 @@ endif; # no slider use featured image
 				</div>
 			</div>
 
-			<div class="col-sm-4 map_height">
+			<div class="col-sm-4 ">
                 <?php $eaux_photo =  get_field('eaux_photo'); ?>
 				<div class="offre_img" style="background-image:url(<?php echo $eaux_photo['sizes']['medium']; ?>)">
 					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Eaux Vives';} else {echo 'Agence de Eaux Vives'; } ?></h3>
@@ -211,7 +211,7 @@ endif; # no slider use featured image
 	<br>
 	<br>
 	<div class="row">
-			<div class="col-sm-12"><div class="map_height" id="agencymap"></div></div>
+			<div class="col-sm-12"><div id="agencymap"></div></div>
 	</div> <!--END OF ROW -->
 		
 	</div>
