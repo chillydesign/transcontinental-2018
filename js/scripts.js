@@ -410,9 +410,10 @@ $(function () {
 		}
 
 		if (locations.length > 1) {
-
 			agencymap.fitBounds(bounds);
-		};
+		} else {
+			agencymap.setZoom(14);
+		}
 
 
 	}  // end of if locations defined
