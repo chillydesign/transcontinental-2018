@@ -407,13 +407,17 @@ $(function () {
 				infowindow.open(agencymap, this);
 			});
 			bounds.extend(latlng);
+
+			agencymap.setZoom(13);
+			agencymap.setCenter(latlng);
+
 		}
 
 		if (locations.length > 1) {
 			agencymap.fitBounds(bounds);
 		} else {
 			console.log('here');
-			agencymap.setZoom(10);
+
 		}
 
 		console.log(agencymap);
