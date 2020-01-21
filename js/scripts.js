@@ -412,8 +412,11 @@ $(function () {
 		if (locations.length > 1) {
 			agencymap.fitBounds(bounds);
 		} else {
+			console.log('here');
 			agencymap.setZoom(14);
 		}
+
+		console.log(agencymap);
 
 
 	}  // end of if locations defined
