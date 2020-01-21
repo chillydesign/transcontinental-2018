@@ -203,7 +203,7 @@ $(function () {
 	$('aside, #main_article').matchHeight();
 	$('.iframe_links a').matchHeight();
 
-
+	$('.matchme').matchHeight();
 
 	$send_offer_form = $('#send_offer');
 	if (typeof send_offer_url !== 'undefined') {
@@ -315,7 +315,7 @@ $(function () {
 
 	var mapcontainer = $('#googleMap');
 	var myMapOptions = {
-		zoom: 8,
+		zoom: 15,
 		mapTypeControl: false,
 		scrollwheel: true
 	};

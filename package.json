@@ -4,6 +4,7 @@
   "description": "wordpress theme for transcontinental by webfactor",
   "main": "index.php",
   "dependencies": {
+    "gulp": "^4.0.2",
     "instafeed.js": "^1.4.1"
   },
   "devDependencies": {},

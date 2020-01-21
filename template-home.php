@@ -166,54 +166,74 @@ endif; # no slider use featured image
 </div>
 
 <div class="locations">
+
+  <?php if(is_zenith()) : ?>
+    <script>
+      var locations = [[46.4226507, 6.2615992, 'Agence Gland']];
+    </script>
+  <?php else: ?>
+  <script>
+    var locations = [[46.192858, 6.162241, 'Agence Florissant'], [46.193973, 6.195679, 'Agence Chêne'], [46.2042583,6.1570301, 'Agence Eaux Vives']];
+  </script>
+<?php endif; ?>
+
+
+
 	<div class="container">
 		<h2>Prêt à partir? Retrouvez-nous dans une de nos agences </h2>
+    <?php if(is_zenith()): ?>
 		<div class="row">
-			<div class="col-sm-4 ">
-                <?php $florissant_photo =  get_field('florissant_photo'); ?>
+			<div class="col-sm-6 matchme">
+        <?php $florissant_photo =  get_field('florissant_photo'); ?>
 				<div class="offre_img" style="background-image:url(<?php echo $florissant_photo['sizes']['medium']; ?>)">
-					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Gland';} else {echo 'Agence de Florissant'; } ?></h3>
+					<h3 class="white_title">Zénith Voyages Gland</h3>
 				</div>
 				<div class="offre_content" style="padding-top:10px;">
 					<?php echo get_field('florissant'); ?>
 				</div>
 			</div>
-			<div class="col-sm-4 ">
-                <?php $chene_photo =  get_field('chene_photo'); ?>
-				<div class="offre_img" style="background-image:url(<?php echo $chene_photo['sizes']['medium']; ?>)">
-					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Nyon';} else {echo 'Agence de Chêne'; } ?></h3>
-				</div>
-				<div class="offre_content" style="padding-top:10px;">
-					<?php echo get_field('chene'); ?>
-				</div>
-			</div>
-
-			<div class="col-sm-4 ">
-                <?php $eaux_photo =  get_field('eaux_photo'); ?>
-				<div class="offre_img" style="background-image:url(<?php echo $eaux_photo['sizes']['medium']; ?>)">
-					<h3 class="white_title"><?php if(is_zenith()){ echo 'Zénith Voyages Eaux Vives';} else {echo 'Agence de Eaux Vives'; } ?></h3>
-				</div>
-				<div class="offre_content" style="padding-top:10px;">
-					<?php echo get_field('eaux'); ?>
-				</div>
-			</div>
+      <div class="col-sm-6">
+        <div class="matchme" id="agencymap"></div>
+      </div>
 			 </div> <!--END OF ROW -->
+     <?php else: ?>
+       <div class="row">
+   			<div class="col-sm-4 ">
+                   <?php $florissant_photo =  get_field('florissant_photo'); ?>
+   				<div class="offre_img" style="background-image:url(<?php echo $florissant_photo['sizes']['medium']; ?>)">
+   					<h3 class="white_title">Agence de Florissant</h3>
+   				</div>
+   				<div class="offre_content" style="padding-top:10px;">
+   					<?php echo get_field('florissant'); ?>
+   				</div>
+   			</div>
+   			<div class="col-sm-4 ">
+                   <?php $chene_photo =  get_field('chene_photo'); ?>
+   				<div class="offre_img" style="background-image:url(<?php echo $chene_photo['sizes']['medium']; ?>)">
+   					<h3 class="white_title">Agence de Chêne</h3>
+   				</div>
+   				<div class="offre_content" style="padding-top:10px;">
+   					<?php echo get_field('chene'); ?>
+   				</div>
+   			</div>
 
-      <?php if(is_zenith()) : ?>
-        <script>
-        	var locations = [[46.4226507, 6.2615992, 'Agence Gland'], [46.3826367, 6.2362164, 'Agence Nyon'], [46.2042583,6.1570301, 'Agence Eaux Vives']  ];
-        </script>
-      <?php else: ?>
-      <script>
-      	var locations = [[46.192858, 6.162241, 'Agence Florissant'], [46.193973, 6.195679, 'Agence Chêne'], [46.2042583,6.1570301, 'Agence Eaux Vives']];
-      </script>
-    <?php endif; ?>
-	<br>
-	<br>
-	<div class="row">
-			<div class="col-sm-12"><div id="agencymap"></div></div>
-	</div> <!--END OF ROW -->
-		
+   			<div class="col-sm-4">
+                   <?php $eaux_photo =  get_field('eaux_photo'); ?>
+   				<div class="offre_img" style="background-image:url(<?php echo $eaux_photo['sizes']['medium']; ?>)">
+   					<h3 class="white_title">Agence de Eaux Vives</h3>
+   				</div>
+   				<div class="offre_content" style="padding-top:10px;">
+   					<?php echo get_field('eaux'); ?>
+   				</div>
+   			</div>
+   			 </div> <!--END OF ROW -->
+         <br>
+       	<br>
+       	<div class="row">
+       			<div class="col-sm-12"><div id="agencymap"></div></div>
+       	</div> <!--END OF ROW -->
+     <?php endif; ?>
+
 	</div>
 </div>
 
