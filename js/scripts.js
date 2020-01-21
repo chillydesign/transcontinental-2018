@@ -408,19 +408,19 @@ $(function () {
 			});
 			bounds.extend(latlng);
 
-			agencymap.setZoom(13);
-			agencymap.setCenter(latlng);
+			if (locations.length == 1) {
+				agencymap.setZoom(13);
+				agencymap.setCenter(latlng);
+			}
+
 
 		}
 
 		if (locations.length > 1) {
 			agencymap.fitBounds(bounds);
-		} else {
-			console.log('here');
-
 		}
 
-		console.log(agencymap);
+
 
 
 	}  // end of if locations defined
