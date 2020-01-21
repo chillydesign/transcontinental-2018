@@ -409,7 +409,11 @@ $(function () {
 			bounds.extend(latlng);
 		}
 
-		agencymap.fitBounds(bounds);
+		if (locations.length > 1) {
+
+			agencymap.fitBounds(bounds);
+		};
+
 
 	}  // end of if locations defined
 
