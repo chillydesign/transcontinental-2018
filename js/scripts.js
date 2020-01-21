@@ -413,7 +413,7 @@ $(function () {
 			agencymap.fitBounds(bounds);
 		} else {
 			console.log('here');
-			agencymap.setZoom(14);
+			agencymap.setZoom(10);
 		}
 
 		console.log(agencymap);
