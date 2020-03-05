@@ -19,7 +19,7 @@
 <div class="reservation">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-sm-5 col-sm-push-1">
 				<div class="reservation_box">
 					<div class="offre_img" style="background-image:url(<?php echo $tdu ;?>/img/plane.jpg)">
 
@@ -34,9 +34,11 @@
 
 						</div>
 						<a class="readmore" href="https://aqtion1.airquest.com/aq4/jsp/c/amadeus2/Aqtionbooker.jsp;jsessionid=6D82C06EF35A072C362E7EB9F5A564EB?j_username=transcontinental.ch&j_password=transcontinental.ch&&&termid=transcontinental.ch" target="_blank"><h6>Réserver en ligne</h6></a>
-					</div>
+					</div>hotel
 				</div>
 			</div>
+
+			<?php if (false): ?>
 			<div class="col-sm-4">
 				<div class="reservation_box">
 					<div class="offre_img" style="background-image:url(<?php echo $tdu;?>/img/hotel.jpg)">
@@ -55,7 +57,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			<?php endif; ?>
+
+
+			<div class="col-sm-5 col-sm-push-2">
 				<div class="reservation_box">
 					<div class="offre_img" style="background-image:url(<?php echo $tdu;?>/img/car.jpg)">
 
