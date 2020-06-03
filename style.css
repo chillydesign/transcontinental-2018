@@ -1707,3 +1707,14 @@ span.not_found {
         max-width: 16.66667%;
     }
 }
+
+
+iframe#expertips_iframe {
+    right: 40px!important;
+    max-width: 100%;
+}
+
+iframe#expertips_iframe .et-box-align-left-msg {
+    background: #fe82ff;
+    border-radius: 5px 40px 40px 40px;
+}
