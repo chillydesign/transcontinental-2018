@@ -85,7 +85,7 @@ if (function_exists('add_theme_support')) {
 
 function wf_version()
 {
-    return '0.1.6';
+    return '0.1.7';
 }
 
 
@@ -372,7 +372,7 @@ function html5blankcomments($comment, $args, $depth)
             <div class="col-sm-10 comment-meta commentmetadata">
                 <?php echo get_comment_author_link() ?> on <?php
                                                             printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'), '  ', '');
-                                                                                        ?>
+                                                                                                                                        ?>
 
                 <?php comment_text() ?>
 
