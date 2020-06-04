@@ -1728,6 +1728,7 @@ iframe#expertips_iframe {
     right: 40px !important;
     max-width: 100%;
     max-width: calc(100% - 20px);
+    max-height: calc(100vh - 90px);
 }
 
 iframe#expertips_iframe .et-box-align-left-msg {
