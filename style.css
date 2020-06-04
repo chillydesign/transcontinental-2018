@@ -622,7 +622,7 @@ body .header_slider {
 button.slick-arrow {
     position: absolute;
     top: 0;
-    left: -30px;
+
     height: 100%;
     display: inline-block;
     width: 30px;
@@ -635,6 +635,7 @@ button.slick-arrow {
     border: 0;
     text-indent: 0;
     cursor: pointer;
+    z-index: 20;
 }
 
 button.slick-arrow:active,
@@ -644,8 +645,22 @@ button.slick-arrow:focus {
 
 button.slick-arrow.slick-next {
     left: auto;
-    right: -30px;
+    right: 0;
     background-image: url('img/transco-arrow-next.svg');
+}
+
+
+
+@media (min-width: 768px) {
+    button.slick-arrow {
+        left: -30px;
+
+    }
+
+    button.slick-arrow.slick-next {
+        left: auto;
+        right: -30px;
+    }
 }
 
 .offre {
@@ -1710,7 +1725,7 @@ span.not_found {
 
 
 iframe#expertips_iframe {
-    right: 40px!important;
+    right: 40px !important;
     max-width: 100%;
 }
 
