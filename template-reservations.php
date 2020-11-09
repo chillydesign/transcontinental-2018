@@ -1,7 +1,7 @@
 <?php /* Template Name: Reservations Template */ get_header(); ?>
 <?php $tdu = get_template_directory_uri(); ?>
 <?php $home_url = get_home_url(); ?>
-<div class="page_image" style="background-image:url('<?php if ( has_post_thumbnail()) :  ?><?php echo the_post_thumbnail_url(); ?><?php else: ?><?php echo $home_url; ?>/wp-content/uploads/2018/10/slide2-1.jpg'<?php endif; ?>)">
+<div class="page_image" style="background-image:url('<?php if (has_post_thumbnail()) :  ?><?php echo the_post_thumbnail_url(); ?><?php else : ?><?php echo $home_url; ?>/wp-content/uploads/2018/10/slide2-1.jpg'<?php endif; ?>)">
 	<div class="container">
 		<h1><?php the_title(); ?></h1>
 	</div>
@@ -19,10 +19,9 @@
 <div class="reservation">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-5 col-sm-push-1">
+			<div class="col-sm-4">
 				<div class="reservation_box">
-					<div class="offre_img" style="background-image:url(<?php echo $tdu ;?>/img/plane.jpg)">
-
+					<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/plane.jpg)">
 						<h3 class="white_title">Trouver</h3>
 					</div>
 					<div class="offre_content">
@@ -33,36 +32,40 @@
 							</div>
 
 						</div>
-						<a class="readmore" href="https://aqtion1.airquest.com/aq4/jsp/c/amadeus2/Aqtionbooker.jsp;jsessionid=6D82C06EF35A072C362E7EB9F5A564EB?j_username=transcontinental.ch&j_password=transcontinental.ch&&&termid=transcontinental.ch" target="_blank"><h6>Réserver en ligne</h6></a>
+						<a class="readmore" href="https://aqtion1.airquest.com/aq4/jsp/c/amadeus2/Aqtionbooker.jsp;jsessionid=6D82C06EF35A072C362E7EB9F5A564EB?j_username=transcontinental.ch&j_password=transcontinental.ch&&&termid=transcontinental.ch" target="_blank">
+							<h6>Réserver en ligne</h6>
+						</a>
 					</div>
 				</div>
 			</div>
 
-			<?php if (false): ?>
-			<div class="col-sm-4">
-				<div class="reservation_box">
-					<div class="offre_img" style="background-image:url(<?php echo $tdu;?>/img/hotel.jpg)">
+			<?php if (is_zenith() == false) : ?>
+				<div class="col-sm-4">
+					<div class="reservation_box">
+						<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/hotel.jpg)">
+							<h3 class="white_title">Rechercher</h3>
+						</div>
+						<div class="offre_content">
+							<div class="allbutlink">
+								<h3 class="black_title">un hôtel</h3>
+								<div class="excerpt">
+									<p>Réservez votre séjour en ligne.</p>
+								</div>
 
-						<h3 class="white_title">Rechercher</h3>
-					</div>
-					<div class="offre_content">
-						<div class="allbutlink">
-							<h3 class="black_title">un hôtel</h3>
-							<div class="excerpt">
-								<p>Réservez votre séjour en ligne.</p>
 							</div>
 
+							<a class="readmore" href="https://www.booking.com/index.html?aid=2091365" target="_blank">
+								<h6>Réserver en ligne</h6>
+							</a>
 						</div>
-						<a class="readmore" href="http://www.hotelpronto.com/?affiliateid=30614" target="_blank"><h6>Réserver en ligne</h6></a>
 					</div>
 				</div>
-			</div>
 			<?php endif; ?>
 
 
-			<div class="col-sm-5 col-sm-push-1">
+			<div class="col-sm-4">
 				<div class="reservation_box">
-					<div class="offre_img" style="background-image:url(<?php echo $tdu;?>/img/car.jpg)">
+					<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/car.jpg)">
 
 						<h3 class="white_title">Réserver</h3>
 					</div>
@@ -74,7 +77,9 @@
 							</div>
 
 						</div>
-						<a class="readmore" href="https://partner.sunnycars.ch/ak/452593" target="_blank"><h6>Réserver en ligne</h6></a>
+						<a class="readmore" href="https://partner.sunnycars.ch/ak/452593" target="_blank">
+							<h6>Réserver en ligne</h6>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -85,14 +90,18 @@
 <div class="program">
 	<div class="container">
 		<h2>Besoin d'aide? Nous sommes là pour vous aider.</h2>
-		<a href="<?php echo  $home_url; ?>/demande-de-renseignements" class="button"><h6>Contactez-nous</h6></a>
+		<a href="<?php echo  $home_url; ?>/demande-de-renseignements" class="button">
+			<h6>Contactez-nous</h6>
+		</a>
 	</div>
 </div>
 
 
 
-<?php //get_sidebar(); ?>
-<?php // get_template_part('sidebar_right'); ?>
+<?php //get_sidebar(); 
+?>
+<?php // get_template_part('sidebar_right'); 
+?>
 
 
 </div> <!-- END OF ROW -->
