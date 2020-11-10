@@ -1,1 +1,1 @@
-var instagram_token = 'null'
+var instagram_token = 'IGQVJWOFJfSHpqUXNhaUhtVkxJdm9PQzBqbmV2dlY0dnBWRV9nV2xYUHR5MGRoaUU5OUtuVGtrVWsyVE5VNnRxbUJhVUJSeXduY1RXbVpFNDZAhTEJTekNxYzZAhTkJWMzNFYkM0WmJR'
