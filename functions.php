@@ -23,14 +23,12 @@ if (defined('WEBSITE_THEME')) {
     $website_theme = 'Transcontinental';
 }
 
-function get_website_theme()
-{
+function get_website_theme() {
     global $website_theme;
     return $website_theme;
 }
 
-function is_zenith()
-{
+function is_zenith() {
     return (get_website_theme()  == 'zenith');
 }
 // USE TO SWITCH BETWEEN transcontinental and zenith themes
@@ -83,16 +81,14 @@ if (function_exists('add_theme_support')) {
 \*------------------------------------*/
 
 
-function wf_version()
-{
-    return '0.1.8';
+function wf_version() {
+    return '0.1.9';
 }
 
 
 
 
-function google_maps_key()
-{
+function google_maps_key() {
 
     echo 'AIzaSyAsIAIeE3FYSHQMTi-PNd5EURPDhQCfxfw';
 }
@@ -100,8 +96,7 @@ function google_maps_key()
 
 
 // HTML5 Blank navigation
-function html5blank_nav()
-{
+function html5blank_nav() {
     wp_nav_menu(
         array(
             'theme_location'  => 'header-menu',
@@ -124,8 +119,7 @@ function html5blank_nav()
 }
 
 // Load HTML5 Blank scripts (header.php)
-function html5blank_header_scripts()
-{
+function html5blank_header_scripts() {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
         wp_deregister_script('jquery');
@@ -141,8 +135,7 @@ function html5blank_header_scripts()
 }
 
 // Load HTML5 Blank conditional scripts
-function html5blank_conditional_scripts()
-{
+function html5blank_conditional_scripts() {
     if (is_page('pagenamehere')) {
         // wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
         // wp_enqueue_script('scriptname'); // Enqueue it!
@@ -150,8 +143,7 @@ function html5blank_conditional_scripts()
 }
 
 // Load HTML5 Blank styles
-function html5blank_styles()
-{
+function html5blank_styles() {
 
     // remove gutenberg css
     wp_dequeue_style('wp-block-library');
@@ -185,8 +177,7 @@ function html5blank_styles()
 }
 
 // Register HTML5 Blank Navigation
-function register_html5_menu()
-{
+function register_html5_menu() {
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'html5blank') // Main Navigation
 
@@ -194,27 +185,23 @@ function register_html5_menu()
 }
 
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
-function my_wp_nav_menu_args($args = '')
-{
+function my_wp_nav_menu_args($args = '') {
     $args['container'] = false;
     return $args;
 }
 
 // Remove Injected classes, ID's and Page ID's from Navigation <li> items
-function my_css_attributes_filter($var)
-{
+function my_css_attributes_filter($var) {
     return is_array($var) ? array() : '';
 }
 
 // Remove invalid rel attribute values in the categorylist
-function remove_category_rel_from_category_list($thelist)
-{
+function remove_category_rel_from_category_list($thelist) {
     return str_replace('rel="category tag"', 'rel="tag"', $thelist);
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
-function add_slug_to_body_class($classes)
-{
+function add_slug_to_body_class($classes) {
     global $post;
     if (is_home()) {
         $key = array_search('blog', $classes);
@@ -247,8 +234,7 @@ if (function_exists('register_sidebar')) {
 }
 
 // Remove wp_head() injected Recent Comment styles
-function my_remove_recent_comments_style()
-{
+function my_remove_recent_comments_style() {
     global $wp_widget_factory;
     remove_action('wp_head', array(
         $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
@@ -257,8 +243,7 @@ function my_remove_recent_comments_style()
 }
 
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
-function html5wp_pagination()
-{
+function html5wp_pagination() {
     global $wp_query;
     $big = 999999;
     echo paginate_links(array(
@@ -276,14 +261,12 @@ function html5wp_index($length) // Create 20 Word Callback for Index page Excerp
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
-function html5wp_custom_post($length)
-{
+function html5wp_custom_post($length) {
     return 40;
 }
 
 // Create the Custom Excerpts callback
-function html5wp_excerpt($length_callback = '', $more_callback = '')
-{
+function html5wp_excerpt($length_callback = '', $more_callback = '') {
     global $post;
     if (function_exists($length_callback)) {
         add_filter('excerpt_length', $length_callback);
@@ -299,42 +282,36 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 }
 
 // Custom View Article link to Post
-function html5_blank_view_article($more)
-{
+function html5_blank_view_article($more) {
     global $post;
     return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
 }
 
 // Remove Admin bar
-function remove_admin_bar()
-{
+function remove_admin_bar() {
     return false;
 }
 
 // Remove 'text/css' from our enqueued stylesheet
-function html5_style_remove($tag)
-{
+function html5_style_remove($tag) {
     return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
 }
 
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-function remove_thumbnail_dimensions($html)
-{
+function remove_thumbnail_dimensions($html) {
     $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
     return $html;
 }
 
 // Custom Gravatar in Settings > Discussion
-function html5blankgravatar($avatar_defaults)
-{
+function html5blankgravatar($avatar_defaults) {
     $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
     $avatar_defaults[$myavatar] = "Custom Gravatar";
     return $avatar_defaults;
 }
 
 // Threaded Comments
-function enable_threaded_comments()
-{
+function enable_threaded_comments() {
     if (!is_admin()) {
         if (is_singular() and comments_open() and (get_option('thread_comments') == 1)) {
             wp_enqueue_script('comment-reply');
@@ -343,8 +320,7 @@ function enable_threaded_comments()
 }
 
 // Custom Comments Callback
-function html5blankcomments($comment, $args, $depth)
-{
+function html5blankcomments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
     extract($args, EXTR_SKIP);
 
@@ -451,8 +427,7 @@ function html5blankcomments($comment, $args, $depth)
 \*------------------------------------*/
 
     // Create 1 Custom Post type for a Demo, called HTML5-Blank
-    function create_post_type_slide()
-    {
+    function create_post_type_slide() {
 
         register_post_type(
             'slide', // Register Custom Post Type
@@ -489,8 +464,7 @@ function html5blankcomments($comment, $args, $depth)
 
     // Create 1 Custom Post type for a Demo, called HTML5-Blank
     add_action('init', 'create_custom_post_types'); // Add our HTML5 Blank Custom Post Type
-    function create_custom_post_types()
-    {
+    function create_custom_post_types() {
 
 
 
@@ -604,8 +578,7 @@ function html5blankcomments($comment, $args, $depth)
 \*------------------------------------*/
 
     // Shortcode Demo with Nested Capability
-    function html5_shortcode_demo($atts, $content = null)
-    {
+    function html5_shortcode_demo($atts, $content = null) {
         return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
     }
 
@@ -618,8 +591,7 @@ function html5blankcomments($comment, $args, $depth)
 
 
 
-    function revcon_change_post_label()
-    {
+    function revcon_change_post_label() {
         global $menu;
         global $submenu;
         $menu[5][0] = 'News';
@@ -628,8 +600,7 @@ function html5blankcomments($comment, $args, $depth)
         $submenu['edit.php'][16][0] = 'News Tags';
         echo '';
     }
-    function revcon_change_post_object()
-    {
+    function revcon_change_post_object() {
         global $wp_post_types;
         $labels = &$wp_post_types['post']->labels;
         $labels->name = 'News';
@@ -654,8 +625,7 @@ function html5blankcomments($comment, $args, $depth)
 
     // ONLY SHOW PAGE AND POST IN SEARCH RESULTS
     add_filter('pre_get_posts', 'search_filter');
-    function search_filter($query)
-    {
+    function search_filter($query) {
         if ($query->is_search) {
             $query->set('post_type', array('page', 'post'));
         }
@@ -664,8 +634,7 @@ function html5blankcomments($comment, $args, $depth)
 
 
 
-    function get_page_siblings($id)
-    {
+    function get_page_siblings($id) {
         global $wpdb;
         $search_id = (wp_get_post_parent_id($id) > 0) ? wp_get_post_parent_id($id) :  $id;
         $siblings = $wpdb->get_results(
@@ -693,8 +662,7 @@ function html5blankcomments($comment, $args, $depth)
 
 
 
-    function remove_menus()
-    {
+    function remove_menus() {
 
         remove_menu_page('index.php');                  //Dashboard
         // remove_menu_page( 'edit.php' );                   //Posts
@@ -713,8 +681,7 @@ function html5blankcomments($comment, $args, $depth)
 
     // add_filter('acf/settings/show_admin', '__return_false');
 
-    function remove_wpcf7()
-    {
+    function remove_wpcf7() {
         // remove_menu_page( 'wpcf7' );
     }
     //add_action( 'admin_menu', 'remove_menus' );
@@ -722,8 +689,7 @@ function html5blankcomments($comment, $args, $depth)
 
 
 
-    function thumbnail_of_post_url($post_id,  $size = 'large')
-    {
+    function thumbnail_of_post_url($post_id,  $size = 'large') {
 
         $image_id = get_post_thumbnail_id($post_id);
         $image_url = wp_get_attachment_image_src($image_id, $size);
@@ -732,8 +698,7 @@ function html5blankcomments($comment, $args, $depth)
     }
 
 
-    function chilly_site_favicons()
-    {
+    function chilly_site_favicons() {
         $tdu = get_template_directory_uri();
 
         if (get_website_theme() == 'zenith') {
@@ -760,8 +725,7 @@ function html5blankcomments($comment, $args, $depth)
         echo implode("\n", $icons);
     }
 
-    function chilly_site_logo()
-    {
+    function chilly_site_logo() {
         $tdu = get_template_directory_uri();
         if (get_website_theme() == 'zenith') {
             echo '<img src="' .  $tdu . '/img/zenith.svg" alt="Zenith Voyages" />';
@@ -771,8 +735,7 @@ function html5blankcomments($comment, $args, $depth)
     }
 
 
-    function social_meta_properties()
-    {
+    function social_meta_properties() {
 
         $smp =  new stdClass();
 
@@ -816,8 +779,7 @@ function html5blankcomments($comment, $args, $depth)
 
 
 
-    function disable_wp_emojicons()
-    {
+    function disable_wp_emojicons() {
 
         // all actions related to emojis
         remove_action('admin_print_styles', 'print_emoji_styles');
@@ -834,8 +796,7 @@ function html5blankcomments($comment, $args, $depth)
     add_action('init', 'disable_wp_emojicons');
 
 
-    function remove_json_api()
-    {
+    function remove_json_api() {
 
         // Remove the REST API lines from the HTML Header
         remove_action('wp_head', 'rest_output_link_wp_head', 10);
@@ -858,8 +819,7 @@ function html5blankcomments($comment, $args, $depth)
 
 
 
-    function chilly_json_ld()
-    {
+    function chilly_json_ld() {
 
         if (get_website_theme() == 'zenith') {
 
