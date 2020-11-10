@@ -16,10 +16,13 @@
 </div>
 
 
+<?php $col_class =  (is_zenith()) ? 'col-sm-6' : 'col-sm-4';  ?>
+
+
 <div class="reservation">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="<?php echo $col_class; ?>">
 				<div class="reservation_box">
 					<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/plane.jpg)">
 						<h3 class="white_title">Trouver</h3>
@@ -40,7 +43,7 @@
 			</div>
 
 			<?php if (is_zenith() == false) : ?>
-				<div class="col-sm-4">
+				<div class="<?php echo $col_class; ?>">
 					<div class="reservation_box">
 						<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/hotel.jpg)">
 							<h3 class="white_title">Rechercher</h3>
@@ -63,7 +66,7 @@
 			<?php endif; ?>
 
 
-			<div class="col-sm-4">
+			<div class="<?php echo $col_class; ?>">
 				<div class="reservation_box">
 					<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/car.jpg)">
 
