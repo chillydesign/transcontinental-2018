@@ -345,7 +345,7 @@ $(function () {
 			get: 'user',
 			clientId: 'd37968ca616b48de9d142b1a33bee2fa',
 			userId: 10715708705,
-			accessToken: '10715708705.d37968c.b4af47eea4f744cbbfca3f49b17d35ba',
+			accessToken: 'IGQVJVaTRTZA2FKNEZA2LVZA2cDlyaEhDUHNsSDJaQXB4Rm1UbHREWGp4XzV1aUtxWHdrODBlWkVPRmlmRWdLRHdjOGhKYklXWjF0RWxqYzg3UHcwRnFiNm02ZAkhLUWNDWThydEtuRTAwN1BYZAllndHhEMQZDZD',
 			sortBy: 'most-recent',
 			limit: 6,
 			resolution: 'standard_resolution',
