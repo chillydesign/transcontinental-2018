@@ -340,22 +340,23 @@ $(function () {
 
 
 	// instagram
-	if ($('#instafeed').length) {
-		var feed = new Instafeed({
-			get: 'user',
-			clientId: 'd37968ca616b48de9d142b1a33bee2fa',
-			userId: 10715708705,
-			accessToken: 'IGQVJVaTRTZA2FKNEZA2LVZA2cDlyaEhDUHNsSDJaQXB4Rm1UbHREWGp4XzV1aUtxWHdrODBlWkVPRmlmRWdLRHdjOGhKYklXWjF0RWxqYzg3UHcwRnFiNm02ZAkhLUWNDWThydEtuRTAwN1BYZAllndHhEMQZDZD',
-			sortBy: 'most-recent',
-			limit: 6,
-			resolution: 'standard_resolution',
-			template: '<a target="_blank" href="{{link}}" style="background-image:url({{image}})"></a>',
-			success: function (data) {
-			}
-		});
-		feed.run();
+	if (typeof instagram_token !== 'undefined') {
+		if ($('#instafeed').length) {
+			var feed = new Instafeed({
+				get: 'user',
+				clientId: 'd37968ca616b48de9d142b1a33bee2fa',
+				userId: 10715708705,
+				accessToken: instagram_token,
+				sortBy: 'most-recent',
+				limit: 6,
+				resolution: 'standard_resolution',
+				template: '<a target="_blank" href="{{link}}" style="background-image:url({{image}})"></a>',
+				success: function (data) {
+				}
+			});
+			feed.run();
+		}
 	}
-
 
 
 
