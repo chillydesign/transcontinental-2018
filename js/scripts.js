@@ -356,6 +356,8 @@ $(function () {
 			});
 			feed.run();
 		}
+	} else {
+		$('.instafeed_container').hide();
 	}
 
 

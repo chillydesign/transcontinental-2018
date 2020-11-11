@@ -44,7 +44,7 @@
 	<div class="footer_inner">
 		<div class="container">
 			<div style="margin-top:15px" class="row">
-				<p style="text-align:left" class="col-sm-3">&copy; Transcontinental <?php echo date('Y'); ?></p>
+				<p style="text-align:left" class="col-sm-3">&copy; <?php echo theme_site_name(); ?> <?php echo date('Y'); ?></p>
 				<p class="col-sm-6"><a href="https://www.flickr.com/photos/80805361@N08" target="_blank"><i class="fa fa-flickr"></i>Flickr</a><a href="https://twitter.com/transcontinent3" target="_blank"><i class="fa fa-twitter-square"></i>Twitter</a><a href=" https://www.facebook.com/pages/transcontinental-voyages/127200380677071" target="_blank"><i class="fa fa-facebook-square"></i>Facebook</a> <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FTranscontinental-Voyages-127200380677071&width=135&layout=button_count&action=like&show_faces=true&share=true&height=46&appId=1877600889151299" width="135" height="46" style="border:none;overflow:hidden; width: 135px;height: 46px; margin: -3px 0 -30px;" scrolling="no" frameborder="0" allowTransparency="true"></iframe></p>
 				<p style="text-align:right" class="col-sm-3">Website by <a href="http://webfactor.ch/">WebFactor</a></p>
 

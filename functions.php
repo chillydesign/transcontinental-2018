@@ -82,7 +82,7 @@ if (function_exists('add_theme_support')) {
 
 
 function wf_version() {
-    return '0.1.9';
+    return '0.2.0';
 }
 
 
@@ -735,15 +735,23 @@ function html5blankcomments($comment, $args, $depth) {
     }
 
 
+    function theme_site_name() {
+        if (get_website_theme() == 'zenith') {
+            return 'Zenith Voyages';
+        } else {
+            return 'Transcontinental';
+        }
+    }
+
+
     function social_meta_properties() {
 
         $smp =  new stdClass();
+        $smp->site_name = theme_site_name();
 
         if (get_website_theme() == 'zenith') {
-            $smp->site_name = 'Zenith Voyages';
             $smp->facebook_id = '250511685428818';
         } else {
-            $smp->site_name = 'Transcontinental';
             $smp->facebook_id = '250511685428818';
         }
 
