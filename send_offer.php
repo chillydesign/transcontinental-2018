@@ -52,7 +52,7 @@ if(isset($_POST['email'])) {
 
       // create email headers
       // add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
-      if (get_website_theme() == 'zenith') {
+      if ( is_zenith() ) {
         $to = 'info@zenithvoyages.ch';
         $subject = 'Nouvelle demande - offre Zenith - ' . $offer_title;
       }
@@ -92,7 +92,3 @@ if(isset($_POST['email'])) {
 } else {
   echo "Une erreur s\'est produite.";
 }
-
-
-
-?>

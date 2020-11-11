@@ -170,7 +170,7 @@ function html5blank_styles() {
 
 
 
-    if (get_website_theme() == 'zenith') {
+    if (is_zenith()) {
         wp_register_style('zenith', $tdu . '/zenith.css', array(), wf_version(), 'all');
         wp_enqueue_style('zenith'); // Enqueue it!
     }
@@ -701,7 +701,7 @@ function html5blankcomments($comment, $args, $depth) {
     function chilly_site_favicons() {
         $tdu = get_template_directory_uri();
 
-        if (get_website_theme() == 'zenith') {
+        if (is_zenith()) {
             $icon_dir = $tdu . '/img/faviconzenith';
         } else {
             $icon_dir = $tdu . '/img/favicon';
@@ -727,7 +727,7 @@ function html5blankcomments($comment, $args, $depth) {
 
     function chilly_site_logo() {
         $tdu = get_template_directory_uri();
-        if (get_website_theme() == 'zenith') {
+        if (is_zenith()) {
             echo '<img src="' .  $tdu . '/img/zenith.svg" alt="Zenith Voyages" />';
         } else {
             echo '<img src="' .  $tdu . '/img/logo.png" alt="Transcontinental" />';
@@ -736,7 +736,7 @@ function html5blankcomments($comment, $args, $depth) {
 
 
     function theme_site_name() {
-        if (get_website_theme() == 'zenith') {
+        if (is_zenith()) {
             return 'Zenith Voyages';
         } else {
             return 'Transcontinental';
@@ -749,7 +749,7 @@ function html5blankcomments($comment, $args, $depth) {
         $smp =  new stdClass();
         $smp->site_name = theme_site_name();
 
-        if (get_website_theme() == 'zenith') {
+        if (is_zenith()) {
             $smp->facebook_id = '250511685428818';
         } else {
             $smp->facebook_id = '250511685428818';
@@ -829,7 +829,7 @@ function html5blankcomments($comment, $args, $depth) {
 
     function chilly_json_ld() {
 
-        if (get_website_theme() == 'zenith') {
+        if (is_zenith()) {
 
             echo '<script type="application/ld+json">
         {
