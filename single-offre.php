@@ -12,15 +12,19 @@
 T +41 22 364 46 91<br>
 <a href="mailto:info@zenithvoyages.ch">info@zenithvoyages.ch</a>
 			</p>
-			<p class="col-sm-6">
-				<strong>ZENITH VOYAGES Nyon </strong><br>
-				6, place Bel-Air<br>
-			1260 Nyon<br>
-				T +41 22 362 98 80 <br>
-				<a href="mailto:nyon@zenithvoyages.ch">nyon@zenithvoyages.ch</a>
-			</p>
-		</div>
-	';
+			</div>
+			';
+
+// <p class="col-sm-6">
+// 	<strong>ZENITH VOYAGES Nyon </strong><br>
+// 	6, place Bel-Air<br>
+// 1260 Nyon<br>
+// 	T +41 22 362 98 80 <br>
+// 	<a href="mailto:nyon@zenithvoyages.ch">nyon@zenithvoyages.ch</a>
+// </p>
+
+
+
 else :
 
 	$contact = '
