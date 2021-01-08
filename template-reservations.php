@@ -16,7 +16,7 @@
 </div>
 
 
-<?php $col_class =  (is_zenith()) ? 'col-sm-6' : 'col-sm-4';  ?>
+<?php $col_class =  (is_zenith()) ? 'col-sm-4' : 'col-sm-4';  ?>
 
 
 <div class="reservation">
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 
-			<?php if (is_zenith() == false) : ?>
+
 				<div class="<?php echo $col_class; ?>">
 					<div class="reservation_box">
 						<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/hotel.jpg)">
@@ -56,14 +56,17 @@
 								</div>
 
 							</div>
-
+							<?php if (is_zenith() == false) : ?>
 							<a class="readmore" href="https://www.booking.com/index.html?aid=2091365" target="_blank">
+							<?php else: ?>
+								<a class="readmore" href="https://www.booking.com/index.html?aid=2093527" target="_blank">
+								<?php endif; ?>
 								<h6>Réserver en ligne</h6>
 							</a>
 						</div>
 					</div>
 				</div>
-			<?php endif; ?>
+
 
 
 			<div class="<?php echo $col_class; ?>">
@@ -101,9 +104,9 @@
 
 
 
-<?php //get_sidebar(); 
+<?php //get_sidebar();
 ?>
-<?php // get_template_part('sidebar_right'); 
+<?php // get_template_part('sidebar_right');
 ?>
 
 
