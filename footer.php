@@ -1,7 +1,9 @@
 <?php $tdu = get_template_directory_uri(); ?>
 
 
-<?php get_template_part('instafeed'); ?>
+<?php
+// get_template_part('instafeed'); 
+?>
 
 
 <!-- footer -->
