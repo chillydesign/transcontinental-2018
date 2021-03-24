@@ -82,7 +82,7 @@ if (function_exists('add_theme_support')) {
 
 
 function wf_version() {
-    return '0.2.0';
+    return '0.2.1';
 }
 
 
