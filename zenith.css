@@ -111,3 +111,16 @@ button[type="submit"]:hover,
 a.list_button:hover {
     background: #0A7692;
 }
+
+
+
+/*  SAFERPAY */
+section.paymentgroup ul li form .btn {
+    background: white;
+}
+
+form.page footer ul button.btn {
+    color: white;
+}
+
+/*  SAFERPAY */
