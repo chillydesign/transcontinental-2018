@@ -35,7 +35,7 @@
 							</div>
 
 						</div>
-						<a class="readmore" href="https://aqtion1.airquest.com/aq4/jsp/c/amadeus2/Aqtionbooker.jsp;jsessionid=6D82C06EF35A072C362E7EB9F5A564EB?j_username=transcontinental.ch&j_password=transcontinental.ch&&&termid=transcontinental.ch" target="_blank">
+						<a class="readmore" href="https://aqtion1.airquest.com/aq4/jsp/?j_username=transcontinental.ch2&j_password=transcontinental.ch2" target="_blank">
 							<h6>Réserver en ligne</h6>
 						</a>
 					</div>
@@ -43,29 +43,29 @@
 			</div>
 
 
-				<div class="<?php echo $col_class; ?>">
-					<div class="reservation_box">
-						<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/hotel.jpg)">
-							<h3 class="white_title">Rechercher</h3>
-						</div>
-						<div class="offre_content">
-							<div class="allbutlink">
-								<h3 class="black_title">un hôtel</h3>
-								<div class="excerpt">
-									<p>Réservez votre séjour en ligne.</p>
-								</div>
-
+			<div class="<?php echo $col_class; ?>">
+				<div class="reservation_box">
+					<div class="offre_img" style="background-image:url(<?php echo $tdu; ?>/img/hotel.jpg)">
+						<h3 class="white_title">Rechercher</h3>
+					</div>
+					<div class="offre_content">
+						<div class="allbutlink">
+							<h3 class="black_title">un hôtel</h3>
+							<div class="excerpt">
+								<p>Réservez votre séjour en ligne.</p>
 							</div>
-							<?php if (is_zenith() == false) : ?>
+
+						</div>
+						<?php if (is_zenith() == false) : ?>
 							<a class="readmore" href="https://www.booking.com/index.html?aid=2091365" target="_blank">
-							<?php else: ?>
+							<?php else : ?>
 								<a class="readmore" href="https://www.booking.com/index.html?aid=2093527" target="_blank">
 								<?php endif; ?>
 								<h6>Réserver en ligne</h6>
-							</a>
-						</div>
+								</a>
 					</div>
 				</div>
+			</div>
 
 
 
