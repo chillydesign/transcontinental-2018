@@ -73,8 +73,12 @@
 							'type' => 'DATE'
 						),
 						array(
-							'key' => 'offer_end', // Check the offerend date field is in the future
+							'key' => 'offer_end',
 							'value' => 'NOT EXISTS',
+						),
+						array(
+							'key' => 'offer_end',
+							'value' => '',
 						),
 
 
