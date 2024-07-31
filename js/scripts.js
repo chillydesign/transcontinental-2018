@@ -399,7 +399,7 @@ async function initMap() {
         cartes_container.style.height = "450px";
 
         cartes = new Map(cartes_container, {
-          zoom: 12,
+          zoom: 14,
           mapId: "f93b695803748768",
         });
 

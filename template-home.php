@@ -65,12 +65,18 @@
 					'orderby' => 'meta_value',
 					"order"  => "ASC",
 					'meta_query' => array(
+						'relation' => 'OR',
 						array(
 							'key' => 'offer_end', // Check the offerend date field is in the future
 							'value' => $today,
 							'compare' => '>=',
 							'type' => 'DATE'
-						)
+						),
+						array(
+							'key' => 'offer_end', // Check the offerend date field is in the future
+							'value' => 'NOT EXISTS',
+						),
+
 
 					)
 				); ?>
