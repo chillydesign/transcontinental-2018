@@ -416,7 +416,9 @@ async function initMap() {
           }
         });
 
-        cartes.fitBounds(member_bounds);
+        if (locations.length > 1) {
+          cartes.fitBounds(member_bounds);
+        }
       }
     }
     // multi location map
