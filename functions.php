@@ -826,6 +826,14 @@ function html5blankcomments($comment, $args, $depth) {
     add_action('after_setup_theme', 'remove_json_api');
 
 
+    function store_locations() {
+        if (is_zenith()) {
+            return  '[{  lat: 46.4227318,  lng: 6.2614271,   title: "Zénith Voyages Gland"}]';
+        } else {
+            return '[]';
+        }
+    }
+
 
     function chilly_json_ld() {
 

@@ -259,43 +259,43 @@ $(function () {
       $this.find("ul").removeClass("ul_child_show");
     });
 
-  $(".map_location").on("mouseover", function () {
-    var $lat_lon = $(".unslider-active").data("latlon").split(",");
-    var newLatlng = {
-      lat: parseFloat($lat_lon[0]),
-      lng: parseFloat($lat_lon[1]),
-    };
-    map.setCenter(newLatlng);
-  });
+  //   $(".map_location").on("mouseover", function () {
+  //     var $lat_lon = $(".unslider-active").data("latlon").split(",");
+  //     var newLatlng = {
+  //       lat: parseFloat($lat_lon[0]),
+  //       lng: parseFloat($lat_lon[1]),
+  //     };
+  //     map.setCenter(newLatlng);
+  //   });
 
-  $(".map_location").featherlight("#mylightbox", {
-    beforeOpen: function () {
-      // resize if window resized
-      $window = $(window);
-      mapcontainer.css({ width: $window.width() * 0.75 });
-      google.maps.event.trigger(map, "resize");
-    },
-  });
+  //   $(".map_location").featherlight("#mylightbox", {
+  //     beforeOpen: function () {
+  //       // resize if window resized
+  //       $window = $(window);
+  //       mapcontainer.css({ width: $window.width() * 0.75 });
+  //       google.maps.event.trigger(map, "resize");
+  //     },
+  //   });
 
-  var mapcontainer = $("#googleMap");
-  var myMapOptions = {
-    zoom: 15,
-    mapTypeControl: false,
-    scrollwheel: true,
-  };
+  //   var mapcontainer = $("#googleMap");
+  //   var myMapOptions = {
+  //     zoom: 15,
+  //     mapTypeControl: false,
+  //     scrollwheel: true,
+  //   };
 
-  if (mapcontainer.length > 0) {
-    // var $lat_lon = $('.unslider-active').data('latlon').split(',');
-    //    var myLatlng = {lat: parseFloat($lat_lon[0]) , lng: parseFloat($lat_lon[1]) };
-    var map = new google.maps.Map(mapcontainer.get(0), myMapOptions);
-    var $window = $(window);
-    mapcontainer.css({
-      width: $window.width() * 0.75,
-      height: 370,
-    });
+  //   if (mapcontainer.length > 0) {
+  //     // var $lat_lon = $('.unslider-active').data('latlon').split(',');
+  //     //    var myLatlng = {lat: parseFloat($lat_lon[0]) , lng: parseFloat($lat_lon[1]) };
+  //     var map = new google.maps.Map(mapcontainer.get(0), myMapOptions);
+  //     var $window = $(window);
+  //     mapcontainer.css({
+  //       width: $window.width() * 0.75,
+  //       height: 370,
+  //     });
 
-    //	 map.setCenter( myLatlng   );
-  }
+  //     //	 map.setCenter( myLatlng   );
+  //   }
 
   // instagram
   if (typeof instagram_token !== "undefined") {
@@ -334,43 +334,90 @@ $(function () {
     $("aside, #main_article").matchHeight();
   });
 
-  if (typeof locations != "undefined") {
-    var map_container = $("#agencymap");
-    map_container.css({
-      width: "100%",
-    });
-    var agencymap = new google.maps.Map(map_container.get(0), {
-      // center: {lat: latitude , lng: longitude  },
-      zoom: 14,
-      scrollwheel: false,
-    });
+  //   if (typeof locations != "undefined") {
+  //     var map_container = $("#agencymap");
+  //     map_container.css({
+  //       width: "100%",
+  //     });
+  //     var agencymap = new google.maps.Map(map_container.get(0), {
+  //       // center: {lat: latitude , lng: longitude  },
+  //       zoom: 14,
+  //       scrollwheel: false,
+  //     });
 
-    var marker, i;
-    //location is set in php in template-home.php
-    var bounds = new google.maps.LatLngBounds();
-    var infowindow = new google.maps.InfoWindow({ content: "..." });
-    for (i = 0; i < locations.length; i++) {
-      var location = locations[i];
-      var latlng = new google.maps.LatLng(location[0], location[1]),
-        marker = new google.maps.Marker({
-          position: latlng,
-          map: agencymap,
-          title: location[2],
+  //     var marker, i;
+  //     //location is set in php in template-home.php
+  //     var bounds = new google.maps.LatLngBounds();
+  //     var infowindow = new google.maps.InfoWindow({ content: "..." });
+  //     for (i = 0; i < locations.length; i++) {
+  //       var location = locations[i];
+  //       var latlng = new google.maps.LatLng(location[0], location[1]),
+  //         marker = new google.maps.Marker({
+  //           position: latlng,
+  //           map: agencymap,
+  //           title: location[2],
+  //         });
+  //       marker.addListener("click", function () {
+  //         infowindow.setContent(this.title);
+  //         infowindow.open(agencymap, this);
+  //       });
+  //       bounds.extend(latlng);
+
+  //       if (locations.length == 1) {
+  //         agencymap.setZoom(13);
+  //         agencymap.setCenter(latlng);
+  //       }
+  //     }
+
+  //     if (locations.length > 1) {
+  //       agencymap.fitBounds(bounds);
+  //     }
+  //   } // end of if locations defined
+});
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  initMap();
+});
+
+async function initMap() {
+  if (typeof google !== "undefined") {
+    if (typeof map_locations !== "undefined") {
+      const cartes_container = document.getElementById("agencymap");
+      if (cartes_container) {
+        const { Map } = await google.maps.importLibrary("maps");
+        const { LatLngBounds, LatLng } = await google.maps.importLibrary(
+          "core"
+        );
+
+        const member_bounds = new LatLngBounds();
+
+        // multi location map
+        // multi location map
+
+        cartes_container.style.height = "450px";
+
+        cartes = new Map(cartes_container, {
+          zoom: 12,
+          mapId: "f93b695803748768",
         });
-      marker.addListener("click", function () {
-        infowindow.setContent(this.title);
-        infowindow.open(agencymap, this);
-      });
-      bounds.extend(latlng);
 
-      if (locations.length == 1) {
-        agencymap.setZoom(13);
-        agencymap.setCenter(latlng);
+        map_locations.forEach((location) => {
+          if (location.lat && location.lng) {
+            const latlng = new LatLng(location.lat, location.lng);
+            member_bounds.extend(latlng);
+            const title = location.title;
+            const marker = new AdvancedMarkerElement({
+              map: cartes,
+              title: title,
+              position: latlng,
+            });
+          }
+        });
+
+        cartes.fitBounds(member_bounds);
       }
     }
-
-    if (locations.length > 1) {
-      agencymap.fitBounds(bounds);
-    }
-  } // end of if locations defined
-});
+    // multi location map
+    // multi location map
+  }
+}
