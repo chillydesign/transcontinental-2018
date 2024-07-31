@@ -403,9 +403,10 @@ async function initMap() {
           mapId: "f93b695803748768",
         });
 
+        let latlng;
         locations.forEach((location) => {
           if (location.length > 1) {
-            const latlng = new LatLng(location[0], location[1]);
+            latlng = new LatLng(location[0], location[1]);
             member_bounds.extend(latlng);
             const title = location[2];
             const marker = new AdvancedMarkerElement({
@@ -416,7 +417,9 @@ async function initMap() {
           }
         });
 
-        if (locations.length > 1) {
+        if (locations.length == 1) {
+          cartes.setCenter(latlng);
+        } else {
           cartes.fitBounds(member_bounds);
         }
       }
