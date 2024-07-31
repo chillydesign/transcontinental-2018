@@ -385,10 +385,12 @@ async function initMap() {
       const cartes_container = document.getElementById("agencymap");
       if (cartes_container) {
         const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement } = await google.maps.importLibrary(
+          "marker"
+        );
         const { LatLngBounds, LatLng } = await google.maps.importLibrary(
           "core"
         );
-
         const member_bounds = new LatLngBounds();
 
         // multi location map
@@ -402,7 +404,7 @@ async function initMap() {
         });
 
         locations.forEach((location) => {
-          if (location.lat && location.lng) {
+          if (location.length > 1) {
             const latlng = new LatLng(location[0], location[1]);
             member_bounds.extend(latlng);
             const title = location[2];
