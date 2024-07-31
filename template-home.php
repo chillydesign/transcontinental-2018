@@ -251,9 +251,7 @@
 							<div id="agencymap"></div>
 						</div>
 
-						<script>
-							map_locations = <?php echo store_locations(); ?>;
-						</script>
+
 					</div> <!--END OF ROW -->
 				<?php endif; ?>
 

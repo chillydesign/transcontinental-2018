@@ -381,7 +381,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 async function initMap() {
   if (typeof google !== "undefined") {
-    if (typeof map_locations !== "undefined") {
+    if (typeof locations !== "undefined") {
       const cartes_container = document.getElementById("agencymap");
       if (cartes_container) {
         const { Map } = await google.maps.importLibrary("maps");
@@ -401,11 +401,11 @@ async function initMap() {
           mapId: "f93b695803748768",
         });
 
-        map_locations.forEach((location) => {
+        locations.forEach((location) => {
           if (location.lat && location.lng) {
-            const latlng = new LatLng(location.lat, location.lng);
+            const latlng = new LatLng(location[0], location[1]);
             member_bounds.extend(latlng);
-            const title = location.title;
+            const title = location[2];
             const marker = new AdvancedMarkerElement({
               map: cartes,
               title: title,
