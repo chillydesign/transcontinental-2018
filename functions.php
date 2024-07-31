@@ -692,9 +692,12 @@ function html5blankcomments($comment, $args, $depth) {
     function thumbnail_of_post_url($post_id,  $size = 'large') {
 
         $image_id = get_post_thumbnail_id($post_id);
-        $image_url = wp_get_attachment_image_src($image_id, $size);
-        $image = $image_url[0];
-        return $image;
+        if ($image_id) {
+            $image_url = wp_get_attachment_image_src($image_id, $size);
+            $image = $image_url[0];
+            return $image;
+        }
+        return '';
     }
 
 
