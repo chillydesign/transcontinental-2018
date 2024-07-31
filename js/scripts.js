@@ -396,7 +396,7 @@ async function initMap() {
         // multi location map
         // multi location map
 
-        cartes_container.style.height = "450px";
+        // cartes_container.style.height = "450px";
 
         cartes = new Map(cartes_container, {
           zoom: 14,
