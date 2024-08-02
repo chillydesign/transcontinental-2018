@@ -651,10 +651,10 @@ button.slick-arrow.slick-next {
   font-size: 1.3em;
   font-weight: bold;
   padding: 3px 8px;
-  position: absolute;
-  top: 0;
-  right: 15px;
-  z-index: 100;
+}
+
+.label_invisible {
+  opacity: 0;
 }
 
 .offer_label.expired_offer_label {
